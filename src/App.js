@@ -1,20 +1,37 @@
-import {Routes, Route} from 'react-router-dom';
-import Homepage from './components/Homepage';
-import SignUp from './components/SignUp';
+import CreateNewPassword from "./components/CreateNewPassword";
+import ForgotPassword from "./components/ForgotPassword";
+import SetDelivery from "./components/SetDelivery";
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 
-function App() {
-  return (
-    <Routes>
+function App (){
 
-      <Route path='/' element={<Homepage/>}>
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <p>index</p>
+  },
+  {
+    path: "/forgot-password",
+    element: <ForgotPassword/>
+  },
+  {
+    path: "/delivery",
+    element: <SetDelivery/>
+  },
+  {
+    path: "/create-new-password",
+    element: <CreateNewPassword/>
+  },
+]);
 
-      </Route>
-    </Routes>
-    // <div className="App">
-    //   {/* <Homepage /> */}
-    //   <SignUp/>
-    // </div>
-  );
-}
+return (
+  <div className="App">
+    <RouterProvider router={router} />
+  </div>
+)}
+
 
 export default App;
