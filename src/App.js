@@ -5,9 +5,7 @@ import SetDelivery from "./components/SetDelivery";
 function App() {
   return (
     <div className="App">
-      {/* <SetDelivery/> */}
-      <CreateNewPassword/>
-      {/* <ForgotPassword/> */}
+      <SetDelivery/>
     </div>
   );
 }
