@@ -28,11 +28,10 @@ const CreateNewPassword = () => {
           setErrorMessage(
             'Password should contain at least 8 letters and 2 numbers.'
           );
-          return;
-        }
-        
-
-        if (newPassword === confirmPassword){
+        }else if (newPassword !== confirmPassword){
+            setErrorMessage('Passwords do not match try again')
+        }else{
+            
             axios.post(url, newPassword)
             .then(res=> {
                 console.log(res.data)
@@ -43,9 +42,7 @@ const CreateNewPassword = () => {
             setErrorMessage("")
             setNewPassword('')
             setConfirmPassword("")
-        }else{
-            setErrorMessage('Passwords do not match try again')
-        }
+        
 
         console.log("form has been submitted");
         console.log(`New password: ${newPassword}`);
@@ -53,6 +50,7 @@ const CreateNewPassword = () => {
 
 
     }
+}
 
   return (
         <div className='form'>
@@ -89,5 +87,6 @@ const CreateNewPassword = () => {
       
   )
 }
+
 
 export default CreateNewPassword
