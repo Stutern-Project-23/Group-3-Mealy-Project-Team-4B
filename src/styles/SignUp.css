@@ -1,72 +1,55 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
 body {
-  /* border: 3px solid #008000; */
-  color: black;
-  width: 1440px;
-  height: 1725px;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
 }
 
 .wrapper {
+  margin-top: 70px;
+  box-sizing: border-box;
+  height: 37.45%;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
   background-color: white;
   border: 1px solid #6750a4;
-  /* position: fixed; */
-  top: 102px;
-  left: 324px;
-  height: 820px;
-  width: 864px;
 }
 
 h2 {
-  margin-top: 65px;
   font-family: "Roboto", sans-serif;
-  font-size: 44px;
+  font-size: 2rem;
   font-weight: 600;
   line-height: 20px;
   letter-spacing: 0.10000000149011612px;
   text-align: center;
 }
 
-.close-button {
-  position: fixed;
-  top: 147px;
-  right: 42px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  height: 4px;
-  width: 4px;
-  border: none;
-}
-
-.fa--close {
-  font-size: 20px;
-}
-
 .signup--img {
   display: block;
-  height: 294px;
-  width: 392px;
+  height: 166.66px;
+  width: 233.33px;
   margin-left: auto;
   margin-right: auto;
-  border: 2px solid blue;
 }
 
 .signup--p {
   font-family: "Roboto", sans-serif;
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 400;
-  line-height: 20px;
+  line-height: .5rem;
   letter-spacing: 0.10000000149011612px;
   text-align: center;
 }
 
 .signup--form {
-  /* border: 6px dotted peachpuff; */
-  margin-left: 95px;
-  margin-right: 69px;
+  background-color: white;
+  margin-left: 7%;
+  margin-right: 8.25%;
   font-family: "Roboto", sans-serif;
-  font-size: 14px;
+  font-size: 0.874rem;
   font-weight: 500;
-  line-height: 20px;
   letter-spacing: 0.10000000149011612px;
   margin-top: 0px;
 }
@@ -74,11 +57,10 @@ h2 {
   border: 0px;
   outline: none;
   font-family: "Roboto", sans-serif;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 500;
-  line-height: 20px;
   letter-spacing: 0.10000000149011612px;
-  padding-top: 20px;
+  padding-top: 1.25rem;
 }
 
 p {
@@ -93,25 +75,21 @@ p {
 }
 
 .signup--submit {
-  height: 40px;
-  width: 500px;
+  height: 2.5rem;
+  width: 70%;
   background-color: #6750a4;
   color: white;
   font-family: "Roboto", sans-serif;
-  font-size: 14px;
+  font-size: .875rem;
   font-weight: 400;
   border: 0px;
-  line-height: 20px;
   text-align: center;
-  margin-bottom: 40px;
-  margin-left: auto;
   display: block;
-  margin-top: 60px;
+  margin: 1rem auto;
 }
 
 .password--toggle{
-  /* border: 2px solid greenyellow; */
   height: 18px;
-  width:18px;
-  margin-left: 450px;
+  width: 18px;
+  margin-left: 49%;
 }
