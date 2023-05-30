@@ -1,0 +1,97 @@
+.App{
+    background-color:#6750A4 ;
+    padding:10% 25%;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+body{
+    margin: 0;
+}
+.form{
+    text-align: center;
+    background-color: #fff;
+    align-items: center;
+    padding: 5%;
+    
+}
+
+.form img{
+    width: 70%;
+}
+
+button{
+
+
+    width: 70%;
+    height: 10%;
+    background: #6750A4;
+    margin: 0 15%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+
+}
+.form h3{
+    font-family: 'Roboto';
+    font-weight: 600;
+    font-size: 2.75rem;
+    line-height: 1.25rem;
+    letter-spacing: 0.1px;
+}
+
+@media screen and (max-width: 700px){
+    .form h3{
+        font-family: 'Roboto', sans-serif;
+        font-weight: 600;
+        font-size: 1.75rem;
+        line-height: 1.5;
+        letter-spacing: 0.05em;
+    }
+    .App{
+        padding:10% ;
+    }
+}
+.form .p{
+    padding: 2% 30%;
+}
+
+.form p{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+}
+
+form{
+    padding: 2% 15%;
+    text-align: left;
+}
+
+form label{
+display: block;
+width: 107px;
+height: 19px;
+
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 19px;
+
+}
+
+form input{
+    width: 100%;
+    margin-bottom: 4%;
+    height: 30px;
+    border-style: solid;
+
+}
+
+.line-input{
+    border: none;
+    border-bottom: 1px solid;
+}
+.err-mssg{
+    color: red;
+    font-size: xx-small;
+}
