@@ -17,7 +17,7 @@ function App (){
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <p>index</p>
+    element: <Homepage/>
   },
   {
     path: "/forgot-password",
@@ -31,10 +31,10 @@ const router = createBrowserRouter([
     path: "/create-new-password",
     element: <CreateNewPassword/>
   },
-  {
-    path: "/homepage",
-    element: <Homepage/>
-  },
+  // {
+  //   path: "/homepage",
+  //   element: <Homepage/>
+  // },
   {
     path: "/signup",
     element: <SignUp/>

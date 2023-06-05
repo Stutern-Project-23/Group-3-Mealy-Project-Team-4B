@@ -72,7 +72,7 @@ const SignUp = ({ onClose }) => {
   };
 
   return (
-    <div>
+    <div className="outer--div">
       {isSignUpSuccessful ? (
         <div>
           <p>
@@ -82,13 +82,13 @@ const SignUp = ({ onClose }) => {
           <Link to="/verification">Verify Your Account</Link>
         </div>
       ) : (
-        <div className="wrapper">
+        <div className="signup--wrapper">
           {/* <button className="close-button" onClick={onClose}>
           <img src={closeIcon} alt="close icon" className="fa--close" />
           </button> */}
 
-          <h2>Sign Up to Mealy</h2>
-          {signUpError && <p>{signUpError}</p>}
+          <h2 className="signup--h2">Sign Up to Mealy</h2>
+    
           <p className="signup--p">
             Already have an account? <a href="#">Login</a>
           </p>
@@ -100,63 +100,63 @@ const SignUp = ({ onClose }) => {
 
           <form onSubmit={handleSubmit}>
             <div className="signup--form">
-              <div>
+              <div className="signup--input--wrapper">
                 <img
                   src={nameIcon}
                   alt="name icon"
                   className="signup--vectors"
                 />
                 {/* <label htmlFor="firstName">First Name</label> */}
-                <input
+                <input className="signup--input"
                   placeholder="First Name"
                   type="text"
                   id="firstName"
                   value={firstName}
                   onChange={handleFirstNameChange}
                 />
-                <hr />
+        
               </div>
-              <div>
+              <div className="signup--input--wrapper">
                 <img
                   src={nameIcon}
                   alt="name icon"
                   className="signup--vectors"
                 />
                 {/* <label htmlFor="lastName">Last Name</label> */}
-                <input
+                <input className="signup--input"
                   placeholder="Last Name"
                   type="text"
                   id="lastName"
                   value={lastName}
                   onChange={handleLastNameChange}
                 />
-                <hr />
+            
               </div>
 
-              <div>
+              <div className="signup--input--wrapper">
                 <img
                   src={emailIcon}
                   alt="name icon"
                   className="signup--vectors"
                 />
                 {/* <label htmlFor="email">Email</label> */}
-                <input
+                <input className="signup--input"
                   placeholder="Email"
                   type="email"
                   id="email"
                   value={email}
                   onChange={handleEmailChange}
                 />
-                <hr />
+              
               </div>
-              <div>
+              <div className="signup--input--wrapper">
                 <img
                   src={pwordIcon}
                   alt="name icon"
                   className="signup--vectors"
                 />
                 {/* <label htmlFor="password">Password</label> */}
-                <input
+                <input className="signup--input"
                   placeholder="Password"
                   type={showPassword ? "text" : "password"}
                   id="password"
@@ -168,14 +168,14 @@ const SignUp = ({ onClose }) => {
                   alt="eye icon"
                   className="password--toggle"
                   onClick={toggleShowPassword}
-                />
-                <hr />
+                />              
               </div>
             </div>
             <div>
               <button className="signup--submit" type="submit">
                 SIGNUP
               </button>
+              {signUpError && <p className="signup--error">{signUpError}</p>}
             </div>
           </form>
         </div>

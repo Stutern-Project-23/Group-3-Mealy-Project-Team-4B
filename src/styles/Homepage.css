@@ -8,13 +8,13 @@ body {
   padding: 0px;
 }
 
-.container {
+.hp--container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-h1 {
+.hp--h1 {
   font-family: "Baumans", cursive;
   font-size: 64px;
   font-weight: 400;
@@ -25,7 +25,7 @@ h1 {
   margin-top: 60px;
 }
 
-button {
+.hp--btn {
   height: 40px;
   width: 200px;
   font-family: "Roboto", sans-serif;
@@ -36,4 +36,5 @@ button {
   text-align: center;
   margin-top: 76px;
   margin-right: 156px;
+  color: white;
 }
