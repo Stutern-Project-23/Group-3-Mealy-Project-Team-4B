@@ -31,7 +31,7 @@ function Login() {
     <div className="container form">
       <div className="form login">
         <div className="form-content">
-          <header>Login to Mealy</header>
+          <header classList="header">Login to Mealy</header>
           <div className="form-link">
             <span>
               Don't have an account?{" "}
@@ -43,7 +43,7 @@ function Login() {
           <div className="form-img">
             <img src={loginImg} alt="" />
           </div>
-          <form action="#">
+          <form classList="login-form" action="#">
             <div className="field input-field">
               <input type="email" placeholder="Email" className="input" />
             </div>

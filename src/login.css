@@ -35,13 +35,13 @@
     opacity: 0;
     pointer-events: none;
 }
-header{
+.header{
     font-size: 28px;
     font-weight: 600;
     color: #232836;
     text-align: center;
 }
-form{
+.login-form{
     margin-top: 30px;
 }
 .form .field{
