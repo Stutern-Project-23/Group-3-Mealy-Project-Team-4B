@@ -1,27 +1,19 @@
-// import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import React from "react";
-// import SignUp from "../components/SignUp";
 import "../styles/Homepage.css";
+import Footer from '../components/Footer';
 
 const Homepage = () => {
-//   const [showPopup, setShowPopup] = useState(false);
-
-//   const handleGetStartedClick = () => {
-//     setShowPopup(true);
-//   };
-
-//   const handleClosePopup = () => {
-//     setShowPopup(false);
-//   };
-
   return (
     <div>
-      <div className="container">
-        <h1>MEALY</h1>
-        <button >Get Started</button>
-        {/* <button onClick={handleGetStartedClick}>Get Started</button> */}
+      <div className="hp--container">
+        <h1 className="hp--h1">MEALY</h1>
+
+        <Link to="/signup">
+          <button className="hp--btn">Get Started</button>
+        </Link>
       </div>
-      {/* {showPopup && <SignUp onClose={handleClosePopup} />} */}
+      <Footer/>
     </div>
   );
 };

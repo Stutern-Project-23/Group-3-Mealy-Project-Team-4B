@@ -5,19 +5,19 @@
   width: 1440px;
 } */
 
-.container {
+.hp--container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-h1 {
+.hp--h1 {
   font-family: "Baumans", cursive;
   font-size: 64px;
   font-weight: 400;
-  /* line-height: 76px; */
-  margin-left: 156px;
-  /* text-align: left; */
+  line-height: 76px; 
+  margin-left: 156px; 
+  text-align: left; 
   color: white;
   margin-top: 60px;
 }
@@ -33,4 +33,6 @@ h1 {
   text-align: center;
   margin-top: 76px;
   margin-right: 156px;
+} */
+  /* color: white;
 } */
