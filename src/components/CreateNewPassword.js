@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
 
 const CreateNewPassword = () => {
     const [newPassword, setNewPassword] = useState("");
@@ -52,15 +53,21 @@ const CreateNewPassword = () => {
     }
 }
 
+const navigate = useNavigate()
+
   return (
+
         <div className='form'>
             <div >
+                <div className='formlink-div'>
+                    <Link onClick={()=>navigate(-1)} >x</Link>
+                </div>
                 <h3>Create New Password</h3>
                 <img src="/images/privacy-policy.png" alt="Privacy Policy" />
                 <div className='p'>
                     <p>Your password should contain at least 8 characters and a number</p>
                 </div>
-                <form onSubmit={handleSubmit}>
+                <form className='input-form' onSubmit={handleSubmit}>
                     <div>
                         <label>New password</label>
                         <input placeholder='password' type='password' onChange={handleNewPassword} value={newPassword} />
@@ -74,7 +81,7 @@ const CreateNewPassword = () => {
                         
                     </div>
                     <div>
-                        <button type='submit'>Save</button>
+                        <button className='pop-up-btn' type='submit'>Save</button>
                     </div>
 
 
@@ -84,7 +91,6 @@ const CreateNewPassword = () => {
 
         </div>
                         
-      
   )
 }
 

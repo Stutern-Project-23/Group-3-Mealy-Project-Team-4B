@@ -1,36 +1,45 @@
-.App{
-    background-color:#6750A4 ;
+.pop-up{
+    
     padding:5% 30%;
     font-family: 'Roboto', sans-serif;
 }
 
+.land-page-nav{
+    display: flex;
+    flex-direction: row;
+    padding: 2%;
+    gap: 2%;
+
+}
+
+
 
 body{
     margin: 0;
+    font-family: 'Roboto', sans-serif;
+
 }
 .form{
     text-align: center;
-    background-color: #fff;
-    align-items: center;
-    padding: 5%;
-    height: '100vh';
-    display: 'flex'; 
-    justify-content: 'center';
-    align-items: 'center'
+    background-color: antiquewhite;
+    align-items: center;    
+    width: 30%;
+    height: 40%;
+    align-self: center;
+    padding: 1% ;
     
 }
 
 .form img{
-    width: 70%;
+    width: 50%;
 }
 
-button{
+.pop-up-btn{
 
-
-    width: 70%;
+    width: 100%;
     height: 10%;
     background: #6750A4;
-    margin: 0 15%;
+    
     padding-top: 2%;
     padding-bottom: 2%;
 
@@ -38,9 +47,19 @@ button{
 .form h3{
     font-family: 'Roboto';
     font-weight: 600;
-    font-size: 2.75rem;
+    font-size: 1.5rem;
     line-height: 1.25rem;
     letter-spacing: 0.1px;
+
+}
+
+.formlink-div{
+    text-align: right;
+}
+
+.form a{
+    text-decoration: none;
+    
 }
 
 @media screen and (max-width: 900px){
@@ -51,7 +70,7 @@ button{
         line-height: 1.5;
         letter-spacing: 0.05em;
     }
-    .App{
+    .pop-up{
         padding:10% ;
     }
 }
@@ -65,12 +84,12 @@ button{
     font-weight: 400;
 }
 
-form{
+.input-form{
     padding: 2% 15%;
     text-align: left;
 }
 
-form label{
+.input-form label{
 display: block;
 width: 107px;
 height: 19px;
@@ -99,3 +118,225 @@ form input{
     color: red;
     font-size: xx-small;
 }
+
+/* landing page styling */
+
+.landing-page-container{
+
+}
+
+.land-page-nav{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 2%;
+    gap: 2%;
+}
+
+.dropdown{
+    display: flex;
+    gap: 1%;
+}
+
+.dropdown-link a{
+    text-decoration: none;
+    text-align: left;
+}
+
+.mealy-logo{
+    height: 50px;
+    width: 200px;
+}
+
+.dropdown-btn{
+    width: 7rem;
+    border: none;
+    background-color: white;   
+    font-weight: 700; 
+    
+}
+
+.mealy-n-dropdown{
+    display: flex;
+}
+
+.form-div{
+    display: flex;
+    flex-direction: row;
+    gap: 2%;
+}
+
+.form-div div{
+    align-items: end;
+}
+
+
+/* category card styling */
+
+.category-div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;    
+    
+}
+
+
+.nav-links ul{
+    display: inline-flex ;
+    gap: 7%;
+    width: 50%;
+    
+}
+
+.nav-links li{
+    list-style: none;
+}
+
+.nav-links a{
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+
+}
+
+
+
+.nav-links a.active{
+color: #6750a4;
+}
+
+.nav-link-container{
+    padding-left: 7%;
+}
+
+/* footer styling */
+.land-page-footer {
+    
+    padding: 20px;
+    text-align: center;
+    display: flex;
+  }
+
+  .footer-container{
+    display: flex;
+    width: 100%;
+    background-color: #6750A4;
+    justify-content: center;
+    gap: 7%;
+  }
+  
+  .land-page-footer img {
+    margin-top: 23px;
+  }
+  
+  .land-page-footer h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #e6e6e6;
+
+  }
+  
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    justify-content: center;
+  }
+  
+  .footer-links li {
+    margin-right: 10px;
+  }
+  
+  .footer-links li:last-child {
+    margin-right: 0;
+  }
+  
+  .footer-links a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #e6e6e6;
+
+  }
+  
+  .footer-links a:hover {
+    color: #e6e6e6;
+  }
+  
+  /* restaurants styling */
+  /* Styling for RestaurantCard component */
+.restaurant-card {
+    background-color: #f5f5f5;
+    margin-bottom: 20px;
+  }
+  
+  .restaurant-card h3 {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .restaurant-card h3 span {
+    margin-right: 10px;
+  }
+  
+  .restaurant-card img {
+    max-width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .restaurant-card-span{
+    text-align: center;
+  }
+
+  .restaurant-card span{
+    margin: auto 4%;
+  }
+  
+  
+  .restaurant-card .rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  
+  .restaurant-card .rating span {
+    margin-right: 5px;
+  }
+  
+  .restaurant-card .price {
+    color: #888;
+  }
+  
+  /* Styling for Restaurants component */
+  .restaurants-container, .category-container {
+    padding: 3% 7%;
+  }
+
+  .restaurant-card-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .restaurants-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  /* profile dropdown styling */
+  
+  .profile-container{
+    position: relative;
+  }
+
+  .profile-dropdown{
+    position: absolute;
+    z-index: 1;
+    background-color: #fff;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }

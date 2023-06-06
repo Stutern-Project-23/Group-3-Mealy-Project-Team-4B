@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Baumans&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
-body {
+/* body {
   background-color: #6750a4;
   width: 1440px;
-}
+} */
 
 .container {
   display: flex;
@@ -22,7 +22,7 @@ h1 {
   margin-top: 60px;
 }
 
-button {
+/* button {
   height: 40px;
   width: 200px;
   font-family: "Roboto", sans-serif;
@@ -33,4 +33,4 @@ button {
   text-align: center;
   margin-top: 76px;
   margin-right: 156px;
-}
+} */
