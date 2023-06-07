@@ -8,7 +8,7 @@ import eyeIcon from "../assets/eye-Vector.png";
 // import closeIcon from "../assets/close-vector.png";
 import "../styles/SignUp.css";
 
-const SignUp = ({ onClose }) => {
+const SignUp = (props) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -49,7 +49,7 @@ const SignUp = ({ onClose }) => {
 
     try {
       const response = await fetch(
-        "https://mealyapp-benita-branch.onrender.com/api/v1/user/signUp",
+        "https://mealyapp-bdev.onrender.com/api/v1/user/Signup",
         {
           method: "POST",
           headers: {
@@ -61,6 +61,7 @@ const SignUp = ({ onClose }) => {
 
       if (response.ok) {
         setIsSignUpSuccessful(true);
+        console.log('signup successful', response)
       } else {
         const errorData = await response.json();
         setSignUpError(errorData.message);
@@ -70,7 +71,6 @@ const SignUp = ({ onClose }) => {
       setSignUpError('An error occurred during sign-up.');
     }
   };
-
   return (
     <div className="outer--div">
       {isSignUpSuccessful ? (
@@ -82,15 +82,20 @@ const SignUp = ({ onClose }) => {
           <Link to="/verification">Verify Your Account</Link>
         </div>
       ) : (
-        <div className="signup--wrapper">
+        <div className="signup-overlay">
+          <div className="signup--wrapper">
           {/* <button className="close-button" onClick={onClose}>
           <img src={closeIcon} alt="close icon" className="fa--close" />
           </button> */}
+          <div className='formlink-div'>
+           <Link onClick={props.handleCloseSignUp} >x</Link>
+          </div>
 
           <h2 className="signup--h2">Sign Up to Mealy</h2>
     
           <p className="signup--p">
-            Already have an account? <a href="#">Login</a>
+            Already have an account? <Link to="/login">Login</Link>
+
           </p>
           <img
             className="signup--img"
@@ -111,6 +116,7 @@ const SignUp = ({ onClose }) => {
                   placeholder="First Name"
                   type="text"
                   id="firstName"
+                  name="firstName"
                   value={firstName}
                   onChange={handleFirstNameChange}
                 />
@@ -179,6 +185,8 @@ const SignUp = ({ onClose }) => {
             </div>
           </form>
         </div>
+        </div>
+
       )}
     </div>
   );

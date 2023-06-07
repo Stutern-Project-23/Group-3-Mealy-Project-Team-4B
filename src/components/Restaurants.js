@@ -13,7 +13,7 @@ const Restaurants = () => {
         },
         {
             mealImg: "gory's-cafe.svg",
-            name: 'Breakfast Hub',
+            name:"Gory's Cafe",
             rating: '4.5',
             price: '$4',
             alt: 'gory-cafe'
@@ -81,8 +81,8 @@ const Restaurants = () => {
                         id={index}
                         mealImg = {rest.mealImg}
                         name= {rest.name}
-                        rating = {rest.rating}
-                        price= {rest.price}
+                        // rating = {rest.rating}
+                        // price= {rest.price}
                         alt={rest.alt}
                         
                         />

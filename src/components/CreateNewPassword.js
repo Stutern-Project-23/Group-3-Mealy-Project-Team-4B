@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
+import '../styles/ForgotPassword.css'
 
 const CreateNewPassword = () => {
     const [newPassword, setNewPassword] = useState("");
@@ -33,7 +34,8 @@ const CreateNewPassword = () => {
             setErrorMessage('Passwords do not match try again')
         }else{
             
-            axios.post(url, newPassword)
+            axios
+            .post(url, {password:newPassword})
             .then(res=> {
                 console.log(res.data)
             })
@@ -58,30 +60,30 @@ const navigate = useNavigate()
   return (
 
         <div className='form'>
-            <div >
+            <div className='form-wrapper' >
                 <div className='formlink-div'>
                     <Link onClick={()=>navigate(-1)} >x</Link>
                 </div>
-                <h3>Create New Password</h3>
-                <img src="/images/privacy-policy.png" alt="Privacy Policy" />
-                <div className='p'>
+                <h3 className='form-title'>Create New Password</h3>
+                <img className='form-image' src="/images/privacy-policy.png" alt="Privacy Policy" />
+                <div className='form-description'>
                     <p>Your password should contain at least 8 characters and a number</p>
                 </div>
                 <form className='input-form' onSubmit={handleSubmit}>
                     <div>
                         <label>New password</label>
-                        <input placeholder='password' type='password' onChange={handleNewPassword} value={newPassword} />
+                        <input className='line-input' placeholder='password' type='password' onChange={handleNewPassword} value={newPassword} />
                     </div>
 
 
                     <div>
                         <label>Confirm password</label>
-                        <input placeholder='password' type='password' onChange={handleConfirmPassword} value={confirmPassword} />
-                        {errorMessage && <p className='err-mssg'>{errorMessage}</p> }
+                        <input className='line-input' placeholder='password' type='password' onChange={handleConfirmPassword} value={confirmPassword} />
+                        {errorMessage && <p className='error-message'>{errorMessage}</p> }
                         
                     </div>
                     <div>
-                        <button className='pop-up-btn' type='submit'>Save</button>
+                        <button className='submit-button' type='submit'>Save</button>
                     </div>
 
 
