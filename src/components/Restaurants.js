@@ -77,6 +77,7 @@ const Restaurants = () => {
                 {restCard.map((rest, index)=>{
                     return(
                         <RestaurantCard
+                        
                         key={index}
                         id={index}
                         mealImg = {rest.mealImg}

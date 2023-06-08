@@ -3,25 +3,29 @@ import Dropdown from './Dropdown';
 import UserProfile from './UserProfile';
 import SignUp from './SignUp';
 import axios from 'axios';
+import Login from './Login';
 
 const NavBarComp = () => {
   const [search, setSearch] = useState("");
-  const [isLoggedIn, setIsloggedIn] = useState(true);
-  // const [loginOpen, setLoginOpen] = useState(false);
+  const [isLoggedIn, setIsloggedIn] = useState(false);
+  const [loginOpen, setLoginOpen] = useState(false);
   const [signUpOpen, setSignupOpen] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
 
   const handleSignUpClick = () =>{
-    setSignupOpen(true)
+    setSignupOpen(true) 
   }
 
   const handleCloseSignUp = () =>{
     setSignupOpen(false)
   }
 
-  // const handleLoginClick = () =>{
-  //   setLoginOpen(true)
-  // }
+  const handleCloseLogin = () =>{
+    setLoginOpen(false)
+  }  
+  const handleLoginClick = () =>{
+    setLoginOpen(true)
+  }
 
   const handleChange =(e)=>{
     const searchQuery = e.target.value
@@ -92,9 +96,9 @@ const NavBarComp = () => {
         }
         <div>
           <Dropdown
-          // onClick1= {handleLoginClick}
+          onClick1= {handleLoginClick}
           onClick2= {handleSignUpClick}
-          droplink1='/login'
+          // droplink1='/login'
           // droplink2= '/signup'
           img = 'login-logo.svg'
           item1 = "Login"
@@ -113,6 +117,9 @@ const NavBarComp = () => {
         </ul>
         {signUpOpen && <SignUp
         handleCloseSignUp = {handleCloseSignUp}
+        />}
+        {loginOpen && <Login
+          handleCloseLogin = {handleCloseLogin}
         />}
       </div>
       
