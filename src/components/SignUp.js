@@ -70,6 +70,11 @@ const SignUp = (props) => {
       console.error('An error occurred:', error);
       setSignUpError('An error occurred during sign-up.');
     }
+
+    setFirstName('');
+    setLastName('');
+    setEmail('');
+    setPassword('');
   };
   return (
     <div className="outer--div">
