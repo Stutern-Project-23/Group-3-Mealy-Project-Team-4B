@@ -5,6 +5,7 @@ import nameIcon from "../assets/name-vector.png";
 import pwordIcon from "../assets/pword-Vector.png";
 import emailIcon from "../assets/email-Vector.png";
 import eyeIcon from "../assets/eye-Vector.png";
+import axios from "axios"
 // import closeIcon from "../assets/close-vector.png";
 import "../styles/SignUp.css";
 
@@ -41,31 +42,38 @@ const SignUp = (props) => {
     e.preventDefault();
 
     const payload = {
-      firstName,
-      lastName,
+      userName: `${firstName} ${lastName}`,
       email,
       password,
-    };
+      userAddress: "69, bamaka street"
+    }
 
     try {
-      const response = await fetch(
-        "https://mealyapp-bdev.onrender.com/api/v1/user/Signup",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(payload),
-        }
-      );
+      const response = await axios.post('https://mealyapp-bdev.onrender.com/api/v1/user/Signup', payload)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+      // await fetch(
+      //   "https://mealyapp-bdev.onrender.com/api/v1/user/Signup",
+      //   {
+      //     method: "POST",
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //     },
+      //     body: JSON.stringify(payload),
+      //   }
+      // );
 
-      if (response.ok) {
-        setIsSignUpSuccessful(true);
-        console.log('signup successful', response)
-      } else {
-        const errorData = await response.json();
-        setSignUpError(errorData.message);
-      }
+      // if (response.ok) {
+      //   setIsSignUpSuccessful(true);
+      //   console.log('signup successful', response)
+      // } else {
+      //   const errorData = await response.json();
+      //   setSignUpError(errorData.message);
+      // }
     } catch (error) {
       console.error('An error occurred:', error);
       setSignUpError('An error occurred during sign-up.');
