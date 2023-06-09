@@ -29,8 +29,8 @@ function Login(props) {
 
     // Prepare the data payload
     const data = {
-      email: email,
-      password: password,
+      email,
+      password,
     };
 
     // Make a POST request to the API endpoint using Axios

@@ -42,38 +42,34 @@ const SignUp = (props) => {
     e.preventDefault();
 
     const payload = {
-      userName: `${firstName} ${lastName}`,
-      email,
-      password,
-      userAddress: "69, bamaka street"
+      "userName": `${firstName} ${lastName}`,
+      "email":email,
+      "password":password,
+      "userAddress": "69, bamaka street"
     }
 
     try {
-      const response = await axios.post('https://mealyapp-bdev.onrender.com/api/v1/user/Signup', payload)
+      await axios.post('https://mealyapp-bdev.onrender.com/api/v1/user/Signup', payload, {
+          mode: 'no-cors',
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json',
+          },
+          credentials: 'same-origin',
+        })
       .then(function (response) {
+        if (response) {
+          setIsSignUpSuccessful(true);
+          console.log('signup successful', response)
+        } else {
+          const errorData = response.json();
+          setSignUpError(errorData.message);
+        }
         console.log(response);
       })
       .catch(function (error) {
         console.log(error);
       });
-      // await fetch(
-      //   "https://mealyapp-bdev.onrender.com/api/v1/user/Signup",
-      //   {
-      //     method: "POST",
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //     },
-      //     body: JSON.stringify(payload),
-      //   }
-      // );
-
-      // if (response.ok) {
-      //   setIsSignUpSuccessful(true);
-      //   console.log('signup successful', response)
-      // } else {
-      //   const errorData = await response.json();
-      //   setSignUpError(errorData.message);
-      // }
     } catch (error) {
       console.error('An error occurred:', error);
       setSignUpError('An error occurred during sign-up.');
@@ -101,7 +97,7 @@ const SignUp = (props) => {
           <img src={closeIcon} alt="close icon" className="fa--close" />
           </button> */}
           <div className='formlink-div'>
-           <Link onClick={props.handleCloseSignUp} >x</Link>
+            <Link onClick={props.handleCloseSignUp} >x</Link>
           </div>
 
           <h2 className="signup--h2">Sign Up to Mealy</h2>
