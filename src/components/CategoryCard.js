@@ -2,7 +2,7 @@ import React from 'react'
 
 const CategoryCard = (props) => {
   return (
-    <div  >
+    <div onClick={props.onClick}  >
         <img src={`images/dishes/${props.src}`} alt={props.alt} />
         <p>{props.name}</p> 
     </div>

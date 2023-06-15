@@ -34,7 +34,12 @@ const UserProfile = (props) => {
             <div className='profile-dropdown'>
                 <h2>{`hello ${userData.name}`}</h2>
                 <div>
-                     <h4>Name <span><Link to= 'edit-name' >Edit</Link></span></h4>
+                    <div className='profile-edit'>
+                         <h4 >Name </h4>
+                        <Link to= 'edit-name' >Edit</Link>
+                    </div>
+                    
+                     
                      <p>{userData.name}</p>
                 </div>
                 <div>
@@ -43,7 +48,11 @@ const UserProfile = (props) => {
                 </div>
                 <hr/>
                 <div>
-                     <h4>Password <span><Link to= 'edit-password' >Edit</Link></span></h4>
+                    <div className='profile-edit'>
+                        <h4>Password </h4>
+                        <Link to= 'edit-password' >Edit</Link>
+                    </div>
+                     
                      <p>{userData.password}</p>
                 </div>
                 <hr/>

@@ -1,76 +1,72 @@
-import React, {useState} from 'react'
-import axios from "axios";
+import React, { useState } from 'react';
+import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
+import '../styles/ForgotPassword.css';
 
 const ForgotPassword = () => {
-    const [email, setEmail] = useState("");
-    const [errorMessage, setErrorMessage] = useState("")
+  const [email, setEmail] = useState('');
+  const [error, setError] = useState('');
 
-    const handleEmail=(e)=>{
-        const mail = e.target.value;
-        setEmail(mail)
-        console.log(email)
-    } 
-    
-    const handleSubmit=(e)=>{
-        e.preventDefault();
-        const url = "https://mealyapp-bdev.onrender.com/api/v1/user/forgotPassword"
-        
+  const handleEmail = (e) => {
+    const mail = e.target.value;
+    setEmail(mail);
+  };
 
-        
-        axios.post(url, email)
-        .then(res=> {
-            console.log(res.data)
-        })
-        .catch(err=>{
-            console.log(err)
-        })
-        setErrorMessage("")
-        setEmail('')
-        
-        
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const url = 'https://mealyapp-bdev.onrender.com/api/v1/user/forgotPassword';
 
-        console.log("your mail has been submitted");
-        console.log(`email address: ${email}`);
-        
+    axios
+      .post(url, { email })
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+        setError('An error occurred. Please try again.');
+      });
 
+    setEmail('');
+  };
 
-    }
-    
-
-   
-    const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
-
-        <div className='form'>
-            <div >
-            <div className='formlink-div'>
-                    <Link onClick={()=>navigate(-1)}>x</Link>
-                </div>
-                <h3>Forgot password</h3>
-                <img src="/images/forgot-password.png" alt="Privacy Policy" />
-                <div className='p'>
-                    <p>Please enter your email address to receive a verification code</p>
-                </div>
-                <form className='input-form' onSubmit={handleSubmit}>
-                    <div>
-                        <input className='line-input' placeholder='email address' type='email' onChange={handleEmail} value={email} />
-                        {errorMessage && <p className='err-mssg'>{errorMessage}</p> }
-                    </div>
-
-                    <div>
-                        <button className='pop-up-btn' type='submit'>Send</button>
-                    </div>
-
-
-                </form>
-
-            </div>
-
+    <div className="form">
+      <div className="form-wrapper">
+        <div className="formlink-div">
+          <Link onClick={() => navigate(-1)}>x</Link>
         </div>
-      
-  )
-}
+        <h3 className="form-title">Forgot Password</h3>
+        <div  >
+            <img className='form-image' src="/images/forgot-password.png" alt="Privacy Policy" />
+        </div>
+        
+        <div className="form-description">
+          <p>Please enter your email address to receive a verification code</p>
+        </div>
+        <form className="input-form" onSubmit={handleSubmit}>
+          <div className="form-field">
+            <input
+              className="line-input"
+              placeholder="Email address"
+              type="email"
+              onChange={handleEmail}
+              value={email}
+              required
+            />
+            {error && <p className="error-message">{error}</p>}
+          </div>
 
-export default ForgotPassword
+          <div className="form-field">
+            <button className="submit-button" type="submit">
+              Send
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default ForgotPassword;

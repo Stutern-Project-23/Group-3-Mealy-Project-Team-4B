@@ -5,10 +5,11 @@ import nameIcon from "../assets/name-vector.png";
 import pwordIcon from "../assets/pword-Vector.png";
 import emailIcon from "../assets/email-Vector.png";
 import eyeIcon from "../assets/eye-Vector.png";
+import axios from "axios"
 // import closeIcon from "../assets/close-vector.png";
 import "../styles/SignUp.css";
 
-const SignUp = ({ onClose }) => {
+const SignUp = (props) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -41,36 +42,44 @@ const SignUp = ({ onClose }) => {
     e.preventDefault();
 
     const payload = {
-      firstName,
-      lastName,
-      email,
-      password,
-    };
+      "userName": `${firstName} ${lastName}`,
+      "email":email,
+      "password":password,
+      "userAddress": "69, bamaka street"
+    }
 
     try {
-      const response = await fetch(
-        "https://mealyapp-benita-branch.onrender.com/api/v1/user/signUp",
-        {
-          method: "POST",
+      await axios.post('https://mealyapp-bdev.onrender.com/api/v1/user/Signup', payload, {
+          mode: 'no-cors',
           headers: {
-            "Content-Type": "application/json",
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json',
           },
-          body: JSON.stringify(payload),
+          credentials: 'same-origin',
+        })
+      .then(function (response) {
+        if (response) {
+          setIsSignUpSuccessful(true);
+          console.log('signup successful', response)
+        } else {
+          const errorData = response.json();
+          setSignUpError(errorData.message);
         }
-      );
-
-      if (response.ok) {
-        setIsSignUpSuccessful(true);
-      } else {
-        const errorData = await response.json();
-        setSignUpError(errorData.message);
-      }
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
     } catch (error) {
       console.error('An error occurred:', error);
       setSignUpError('An error occurred during sign-up.');
     }
-  };
 
+    setFirstName('');
+    setLastName('');
+    setEmail('');
+    setPassword('');
+  };
   return (
     <div className="outer--div">
       {isSignUpSuccessful ? (
@@ -82,15 +91,20 @@ const SignUp = ({ onClose }) => {
           <Link to="/verification">Verify Your Account</Link>
         </div>
       ) : (
-        <div className="signup--wrapper">
+        <div className="signup-overlay">
+          <div className="signup--wrapper">
           {/* <button className="close-button" onClick={onClose}>
           <img src={closeIcon} alt="close icon" className="fa--close" />
           </button> */}
+          <div className='formlink-div'>
+            <Link onClick={props.handleCloseSignUp} >x</Link>
+          </div>
 
           <h2 className="signup--h2">Sign Up to Mealy</h2>
     
           <p className="signup--p">
-            Already have an account? <a href="#">Login</a>
+            Already have an account? <Link to="/login">Login</Link>
+
           </p>
           <img
             className="signup--img"
@@ -111,6 +125,7 @@ const SignUp = ({ onClose }) => {
                   placeholder="First Name"
                   type="text"
                   id="firstName"
+                  name="firstName"
                   value={firstName}
                   onChange={handleFirstNameChange}
                 />
@@ -179,6 +194,8 @@ const SignUp = ({ onClose }) => {
             </div>
           </form>
         </div>
+        </div>
+
       )}
     </div>
   );

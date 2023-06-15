@@ -1,12 +1,31 @@
 import React, { useState } from 'react'
 import Dropdown from './Dropdown';
 import UserProfile from './UserProfile';
+import SignUp from './SignUp';
+import axios from 'axios';
+import Login from './Login';
 
 const NavBarComp = () => {
   const [search, setSearch] = useState("");
-  const [isLoggedIn, setIsloggedIn] = useState(true);
+  const [isLoggedIn, setIsloggedIn] = useState(false);
+  const [loginOpen, setLoginOpen] = useState(false);
+  const [signUpOpen, setSignupOpen] = useState(false);
+  const [searchResults, setSearchResults] = useState([]);
 
+  const handleSignUpClick = () =>{
+    setSignupOpen(true) 
+  }
 
+  const handleCloseSignUp = () =>{
+    setSignupOpen(false)
+  }
+
+  const handleCloseLogin = () =>{
+    setLoginOpen(false)
+  }  
+  const handleLoginClick = () =>{
+    setLoginOpen(true)
+  }
 
   const handleChange =(e)=>{
     const searchQuery = e.target.value
@@ -16,8 +35,21 @@ const NavBarComp = () => {
 
   const handleSearch = (e)=>{
     e.preventDefault();
-      const Query = e.target.value;
-      console.log(Query)
+      if(search.trim() !== ''){
+        const url = `https://mealyapp-bdev.onrender.com/api/v1/restaurant/category?category=${search}`;
+
+        axios
+        .get(url,{params:{
+          query: search
+        },})
+        .then((res)=>{
+          setSearchResults(res.data)
+        })
+        .catch((err)=>{
+          console.log(err);
+          setSearchResults([])
+        })
+      }
       setSearch('')
   }
 
@@ -64,15 +96,31 @@ const NavBarComp = () => {
         }
         <div>
           <Dropdown
-          droplink1='login'
-          droplink2= 'signup'
+          onClick1= {handleLoginClick}
+          onClick2= {handleSignUpClick}
+          // droplink1='/login'
+          // droplink2= '/signup'
           img = 'login-logo.svg'
           item1 = "Login"
           item2 = "Signup"
           className= 'authentication-dropdown dropdown-link'
           />
           </div>
+
         </div>
+        <ul>
+          {searchResults.map((result)=>{
+            return(
+              <li key={result.id}>{result.name}</li>
+            )
+          })}
+        </ul>
+        {signUpOpen && <SignUp
+        handleCloseSignUp = {handleCloseSignUp}
+        />}
+        {loginOpen && <Login
+          handleCloseLogin = {handleCloseLogin}
+        />}
       </div>
       
     </nav>
