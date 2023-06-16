@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import takeAway from "../assets/take-away.png";
 import nameIcon from "../assets/name-vector.png";
 import pwordIcon from "../assets/pword-Vector.png";
@@ -8,6 +8,7 @@ import eyeIcon from "../assets/eye-Vector.png";
 import axios from "axios"
 // import closeIcon from "../assets/close-vector.png";
 import "../styles/SignUp.css";
+import { LoginContext } from "./LoginContext";
 
 const SignUp = (props) => {
   const [firstName, setFirstName] = useState("");
@@ -17,6 +18,15 @@ const SignUp = (props) => {
   const [showPassword, setShowPassword] = useState(false);
   const [isSignUpSuccessful, setIsSignUpSuccessful] = useState(false);
   const [signUpError, setSignUpError] = useState(null);
+  const {openLogin, closeSignup } = useContext(LoginContext)
+
+  const handleCloseSignUp = () =>{
+    closeSignup()
+  }
+
+  const goToLogin = () =>{
+    openLogin()
+  }
 
   const handleFirstNameChange = (e) => {
     setFirstName(e.target.value);
@@ -93,17 +103,15 @@ const SignUp = (props) => {
       ) : (
         <div className="signup-overlay">
           <div className="signup--wrapper">
-          {/* <button className="close-button" onClick={onClose}>
-          <img src={closeIcon} alt="close icon" className="fa--close" />
-          </button> */}
+         
           <div className='formlink-div'>
-            <Link onClick={props.handleCloseSignUp} >x</Link>
+            <Link onClick={handleCloseSignUp} >x</Link>
           </div>
 
           <h2 className="signup--h2">Sign Up to Mealy</h2>
     
           <p className="signup--p">
-            Already have an account? <Link to="/login">Login</Link>
+            Already have an account? <Link onClick={goToLogin}>Login</Link>
 
           </p>
           <img

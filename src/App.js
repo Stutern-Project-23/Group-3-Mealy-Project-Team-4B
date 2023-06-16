@@ -6,21 +6,40 @@ import Homepage from './components/Homepage'
 import LandingPage from "./components/LandingPage";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
+import EditName from './components/EditName';
+import EditPassword from "./components/EditPassword";
+import { LoginProvider } from "./components/LoginContext";
+import { PageNotFound } from "./components/PageNotFound";
+import Delivery from "./components/Delivery";
+import { BulkOrder } from "./components/BulkOrder";
+import { Pickup } from "./components/Pickup";
+
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element = {<Homepage/>}/>
-          <Route path="set-delivery" element= {<SetDelivery/>}/>
-          <Route path="create-new-password" element= {<CreateNewPassword/>}/>
-          <Route path="landing-page" element= {<LandingPage/>}/>
-          <Route path="forgot-password" element= {<ForgotPassword/>}/>
-          <Route path="signup" element={<SignUp/>}/>
-          <Route path="login" element={<Login/>}/>
-        </Routes>
-      </BrowserRouter>
+      <LoginProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path= "landing-page/edit-password" element={<EditPassword/>}/>
+            <Route path= "landing-page/edit-name" element={<EditName/>}/>
+            <Route path="/" element = {<Homepage/>}/>
+            <Route path="set-delivery" element= {<SetDelivery/>}/>
+            <Route path="create-new-password" element= {<CreateNewPassword/>}/>
+            <Route path="landing-page" element= {<LandingPage/>}>
+              <Route index element={<Delivery/>}/>
+              <Route path="all-restaurants" element = {<Delivery/>}/>
+              <Route path="pick-up" element = {<Pickup/>}/>
+              <Route path="bulk-order" element = {<BulkOrder/>}/>
+            </Route>
+            <Route path="forgot-password" element= {<ForgotPassword/>}/>
+            <Route path="signup" element={<SignUp/>}/>
+            <Route path="login" element={<Login/>}/>
+            <Route path="*" element={<PageNotFound/>}/>
+          </Routes>
+        </BrowserRouter>
+      </LoginProvider>
+     
     </div>
   );
 }

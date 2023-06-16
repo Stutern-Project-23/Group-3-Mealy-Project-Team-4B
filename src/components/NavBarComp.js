@@ -1,24 +1,27 @@
 import React, { useState } from 'react'
 import Dropdown from './Dropdown';
 import UserProfile from './UserProfile';
-import SignUp from './SignUp';
+// import SignUp from './SignUp';
 import axios from 'axios';
 import Login from './Login';
+import { useContext } from 'react';
+import { LoginContext } from './LoginContext';
 
-const NavBarComp = () => {
+const NavBarComp = ({showSearchInput}) => {
   const [search, setSearch] = useState("");
-  const [isLoggedIn, setIsloggedIn] = useState(false);
+  // const [isLoggedIn, setIsloggedIn] = useState(false);
   const [loginOpen, setLoginOpen] = useState(false);
-  const [signUpOpen, setSignupOpen] = useState(false);
+  // const [signUpOpen, setSignupOpen] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
+  const {isLoggedIn, login, logout} = useContext(LoginContext);
 
-  const handleSignUpClick = () =>{
-    setSignupOpen(true) 
-  }
+  // const handleSignUpClick = () =>{
+  //   setSignupOpen(true) 
+  // }
 
-  const handleCloseSignUp = () =>{
-    setSignupOpen(false)
-  }
+  // const handleCloseSignUp = () =>{
+  //   setSignupOpen(false)
+  // }
 
   const handleCloseLogin = () =>{
     setLoginOpen(false)
@@ -60,7 +63,7 @@ const NavBarComp = () => {
   }
 
   const handleLoggout = () =>{
-    setIsloggedIn(false)
+    logout()
   }
 
   return (
@@ -88,21 +91,28 @@ const NavBarComp = () => {
       
       <div>
       <div className='form-div' >
-        <form onSubmit={handleSearch} >
-          <input onKeyDown={handleKeyDown} onChange={handleChange} type='search' value={search} placeholder='search' />
+        {showSearchInput && (<form onSubmit={handleSearch} >
+          <input 
+            onKeyDown={handleKeyDown}
+            onChange={handleChange} 
+            type='search' 
+            value={search} 
+            placeholder='search' 
+            />
         </form>
+        )}
         { isLoggedIn &&
         <UserProfile handleLoggout={handleLoggout} />
         }
         <div>
           <Dropdown
           onClick1= {handleLoginClick}
-          onClick2= {handleSignUpClick}
+          // onClick2= {handleSignUpClick}
           // droplink1='/login'
           // droplink2= '/signup'
           img = 'login-logo.svg'
+          src1 = 'images/login-logo.svg'
           item1 = "Login"
-          item2 = "Signup"
           className= 'authentication-dropdown dropdown-link'
           />
           </div>
@@ -115,9 +125,9 @@ const NavBarComp = () => {
             )
           })}
         </ul>
-        {signUpOpen && <SignUp
+        {/* {signUpOpen && <SignUp
         handleCloseSignUp = {handleCloseSignUp}
-        />}
+        />} */}
         {loginOpen && <Login
           handleCloseLogin = {handleCloseLogin}
         />}

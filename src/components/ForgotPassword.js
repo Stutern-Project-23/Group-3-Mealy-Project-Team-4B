@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import '../styles/ForgotPassword.css';
+import { LoginContext } from './LoginContext';
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
+  const {closeFPW} = useContext(LoginContext)
 
   const handleEmail = (e) => {
     const mail = e.target.value;
@@ -29,13 +31,12 @@ const ForgotPassword = () => {
     setEmail('');
   };
 
-  const navigate = useNavigate();
 
   return (
     <div className="form">
       <div className="form-wrapper">
         <div className="formlink-div">
-          <Link onClick={() => navigate(-1)}>x</Link>
+          <Link onClick={() => closeFPW()}>x</Link>
         </div>
         <h3 className="form-title">Forgot Password</h3>
         <div  >

@@ -2,17 +2,22 @@ import { Link } from "react-router-dom";
 import React from "react";
 import "../styles/Homepage.css";
 import Footer from '../components/Footer';
+import HomeNav from "./HomeNav";
+import HomeFirstDiv from "./HomeFirstDiv";
+import HomeSecondDiv from "./HomeSecondDiv";
+import HomeThirdDiv from "./HomeThirdDiv";
+import HomeForthDiv from "./HomeForthDiv";
 
 const Homepage = () => {
   return (
     <div>
-      <div className="hp--container">
-        <h1 className="hp--h1">MEALY</h1>
-
-        <Link to="/signup">
-          <button className="hp--btn">Get Started</button>
-        </Link>
-      </div>
+      <HomeNav/>
+      <HomeFirstDiv/>
+      <HomeSecondDiv/>
+      <HomeThirdDiv/>
+      <HomeForthDiv/>
+       
+      
       <Footer/>
     </div>
   );

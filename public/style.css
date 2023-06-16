@@ -9,6 +9,8 @@
     flex-direction: row;
     padding: 2%;
     gap: 2%;
+    background-color: #fff;
+    position: fixed;
 
 }
 
@@ -19,115 +21,6 @@ body{
     font-family: 'Roboto', sans-serif;
 
 }
-/* .form{
-    text-align: center;
-    background-color: antiquewhite;
-    align-items: center;    
-    width: 30%;
-    height: 40%;
-    align-self: center;
-    padding: 1% ;
-    
-} */
-
-/* .form img{
-    width: 50%;
-} */
-
-/* .pop-up-btn{
-
-    width: 100%;
-    height: 10%;
-    background: #6750A4;
-    
-    padding-top: 2%;
-    padding-bottom: 2%;
-
-} */
-/* .form h3{
-    font-family: 'Roboto';
-    font-weight: 600;
-    font-size: 1.5rem;
-    line-height: 1.25rem;
-    letter-spacing: 0.1px;
-
-} */
-
-/* leave out this */
- /* .formlink-div{
-    text-align: right;
-}
-
-.form,.formlink-div a{
-    text-decoration: none;
-    
-}  */
-
-/* leave out this */
-
-
-/* @media screen and (max-width: 900px){
-    .form h3{
-        font-family: 'Roboto', sans-serif;
-        font-weight: 600;
-        font-size: 1.75rem;
-        line-height: 1.5;
-        letter-spacing: 0.05em;
-    }
-    .pop-up{
-        padding:10% ;
-    }
-}
-.form .p{
-    padding: 2% 30%;
-} */
-
-/* .form p{
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-}
-
-.input-form{
-    padding: 2% 15%;
-    text-align: left;
-} */
-
-/* .input-form label{
-display: block;
-width: 107px;
-height: 19px;
-
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 500;
-font-size: 16px;
-line-height: 19px;
-
-} */
-
-/* form input{
-    width: 100%;
-    margin-bottom: 4%;
-    height: 30px;
-    border-style: solid;
-
-} */
-
-/* .line-input{
-    border: none;
-    border-bottom: 1px solid;
-}
-.err-mssg{
-    color: red;
-    font-size: xx-small;
-} */
-
-/* landing page styling */
-
-/* .landing-page-container{
-
-} */
 
 .land-page-nav{
     display: flex;
@@ -135,6 +28,7 @@ line-height: 19px;
     flex-direction: row;
     padding: 2%;
     gap: 2%;
+    width: 100%;
 }
 
 .dropdown{
@@ -145,16 +39,30 @@ line-height: 19px;
 .dropdown-link{
   position: absolute;
   z-index: 1;
+  background-color: #fff;
+
+}
+
+.dropdown-link img{
+  float: inline-end;
 }
 
 .dropdown-link a{
     text-decoration: none;
     text-align: left;
+    margin-bottom: 3px;
 }
 
 .mealy-logo{
     height: 50px;
     width: 200px;
+}
+
+
+nav a.active{
+  font-weight: bold;
+  background-color: #6750A4;
+  color: #fff;
 }
 
 .dropdown-btn{

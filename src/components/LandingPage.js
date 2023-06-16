@@ -9,10 +9,10 @@ import Footer from './Footer';
 const LandingPage = () => {
   return (
     <div className='landing-page-container' >
-        <NavBarComp/> 
+        <NavBarComp showSearchInput={true} /> 
         <Category/>
         <NavLinks/>
-        <Restaurants/>
+        {/* <Restaurants/> */}
         <Footer/>
     </div>
   )

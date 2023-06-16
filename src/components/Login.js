@@ -4,12 +4,20 @@ import "../styles/Login.css";
 import google from "../assets/google.png";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { LoginContext } from "./LoginContext";
+import ForgotPassword from "./ForgotPassword";
+import SignUp from "./SignUp";
 
 function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isPasswordVisible, setPasswordVisible] = useState(false);
+  const {isLoggedin, login, closeLogin, showForgotPw, showFPW, showSignUp, openSignup, closeSignup } = useContext(LoginContext);
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+
+
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -23,6 +31,18 @@ function Login(props) {
     setPasswordVisible(!isPasswordVisible);
   };
 
+  const handleCloseLogin = () =>{
+      closeLogin()
+  }
+
+  const handleShowForgotPassword =()=> {
+    showFPW()
+  }
+
+  const handleOpenSignUp =() =>{
+    openSignup()
+  } 
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(email, password);
@@ -33,6 +53,10 @@ function Login(props) {
       password,
     };
 
+  
+
+    setIsLoading(true);
+
     // Make a POST request to the API endpoint using Axios
     axios
       .post("https://mealyapp-bdev.onrender.com/api/v1/user/login", data)
@@ -42,25 +66,36 @@ function Login(props) {
         // Redirect to a different page after successful login
         navigate("/landing-page");
       })
+
       .catch((error) => {
         // Handle any errors that occur during the API request
         console.error("API error:", error);
+      })
+      .finally(()=>{
+        setIsLoading(false)
       });
 
     setEmail("");
     setPassword("");
+    
   };
+
+    if (isLoggedin){
+      navigate('landing-page');
+      login();
+      return null
+    }
 
   return (
     <div className="form">
       <div className="form-content">
         <div className="cancel-button">
-          <Link onClick={props.handleCloseLogin}>x</Link>
+          <Link onClick={handleCloseLogin}>x</Link>
         </div>
         <header className="header">Login to Mealy</header>
         <div className="form-link">
           <span>
-            Don't have an account? <Link to="/signup">Signup</Link>
+            Don't have an account? <Link onClick={handleOpenSignUp}>Signup</Link>
           </span>
         </div>
         <div>
@@ -91,11 +126,11 @@ function Login(props) {
           </div>
 
           <div className="field button-field">
-            <button>Login</button>
+            <button type="submit" disabled={isLoading} >{isLoading ? "...Loading" : "Submit"}</button>
           </div>
         </form>
         <div className="">
-          <Link onClick={()=>navigate('forgot-password')}  className="forgot-pass">
+          <Link onClick={handleShowForgotPassword}  className="forgot-pass">
             Forgot password?
           </Link>
         </div>
@@ -107,6 +142,8 @@ function Login(props) {
           </Link>
         </div>
       </div>
+      {showForgotPw && <ForgotPassword/>}
+      {showSignUp && <SignUp/>}
     </div>
   );
 }
