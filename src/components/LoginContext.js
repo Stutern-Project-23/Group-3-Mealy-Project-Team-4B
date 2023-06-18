@@ -9,6 +9,9 @@ const LoginProvider = ({children})=>{
     const [showLogin, setShowLogin] = useState(false);
     const [showForgotPw, setShowForgotPw] = useState(false);
     const [showSignUp, setShowSignUp] = useState(false);
+    const [showAddDelivery, setShowAddDelivery] = useState(false);
+    // const [activeModal, setActiveModal] = useState('')
+    // const [isShowModal, setShowModal] = useState(false)
 
     const login = () => {
         setIsloggedIn(true)
@@ -42,6 +45,14 @@ const LoginProvider = ({children})=>{
         setShowSignUp(false)
     }
 
+    const openAD = () =>{
+        setShowAddDelivery(true)
+    }
+
+    const closeAD = () =>{
+        setShowAddDelivery(false)
+    }
+
 
 
     return(
@@ -50,7 +61,8 @@ const LoginProvider = ({children})=>{
             isLoggedIn, login, logout, 
             showLogin, openLogin, closeLogin, 
             showForgotPw, showFPW, closeFPW, 
-            showSignUp, openSignup, closeSignup 
+            showSignUp, openSignup, closeSignup ,
+            showAddDelivery, openAD, closeAD,
         }} >
             {children}
         </LoginContext.Provider>

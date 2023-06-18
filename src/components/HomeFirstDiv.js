@@ -1,15 +1,13 @@
 import React, { useContext, useState } from 'react'
-import { Link } from 'react-router-dom'
-import Login from './Login';
 import { LoginContext } from './LoginContext';
+import SignUp from './SignUp';
+import Login from './Login';
 
 const HomeFirstDiv = () => {
-    const {showLogin, openLogin, closeLogin} = useContext(LoginContext)
+    const {showSignUp, openSignup, isLoggedIn} = useContext(LoginContext)
     const path = 'images/homepage/top/'
 
-    const handleShowLogin = () =>{
-        openLogin()
-    }
+    
   return (
     <div className='first-div-container'>
        
@@ -22,7 +20,7 @@ const HomeFirstDiv = () => {
                 </p>
             </div>
             <div>
-                    <button onClick={handleShowLogin} >Get Started</button> 
+                    <button className='first-div-button' onClick={()=>openSignup()} >Get Started</button> 
             </div>
             
             
@@ -46,7 +44,9 @@ const HomeFirstDiv = () => {
            
 
         </div>
-        {showLogin && <Login/> }
+        {showSignUp && <SignUp/> }
+        {isLoggedIn && <Login/>}
+        
         
     </div>
   )

@@ -13,6 +13,10 @@ import { PageNotFound } from "./components/PageNotFound";
 import Delivery from "./components/Delivery";
 import { BulkOrder } from "./components/BulkOrder";
 import { Pickup } from "./components/Pickup";
+// import Resturant from "./components/Resturant";
+import 'tailwindcss/tailwind.css';
+import AddDelivery from "./components/AddDelivery";
+
 
 
 function App() {
@@ -21,6 +25,8 @@ function App() {
       <LoginProvider>
         <BrowserRouter>
           <Routes>
+            {/* <Route path="add-delivery" element={<AddDelivery/>}/> */}
+            {/* <Route path="restaurant" element={<Resturant/>}/> */}
             <Route path= "landing-page/edit-password" element={<EditPassword/>}/>
             <Route path= "landing-page/edit-name" element={<EditName/>}/>
             <Route path="/" element = {<Homepage/>}/>
@@ -33,7 +39,7 @@ function App() {
               <Route path="bulk-order" element = {<BulkOrder/>}/>
             </Route>
             <Route path="forgot-password" element= {<ForgotPassword/>}/>
-            <Route path="signup" element={<SignUp/>}/>
+            {/* <Route path="signup" element={<SignUp/>}/> */}
             <Route path="login" element={<Login/>}/>
             <Route path="*" element={<PageNotFound/>}/>
           </Routes>

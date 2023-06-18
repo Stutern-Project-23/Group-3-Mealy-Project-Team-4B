@@ -13,7 +13,7 @@ function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isPasswordVisible, setPasswordVisible] = useState(false);
-  const {isLoggedin, login, closeLogin, showForgotPw, showFPW, showSignUp, openSignup, closeSignup } = useContext(LoginContext);
+  const {isLoggedin, login, closeLogin, showForgotPw, showFPW, showSignUp, openSignup } = useContext(LoginContext);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 

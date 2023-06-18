@@ -1,14 +1,15 @@
 import { Link } from "react-router-dom";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import takeAway from "../assets/take-away.png";
 import nameIcon from "../assets/name-vector.png";
 import pwordIcon from "../assets/pword-Vector.png";
 import emailIcon from "../assets/email-Vector.png";
 import eyeIcon from "../assets/eye-Vector.png";
 import axios from "axios"
-// import closeIcon from "../assets/close-vector.png";
 import "../styles/SignUp.css";
 import { LoginContext } from "./LoginContext";
+import AddDelivery from "./AddDelivery";
+import Login from "./Login";
 
 const SignUp = (props) => {
   const [firstName, setFirstName] = useState("");
@@ -18,16 +19,18 @@ const SignUp = (props) => {
   const [showPassword, setShowPassword] = useState(false);
   const [isSignUpSuccessful, setIsSignUpSuccessful] = useState(false);
   const [signUpError, setSignUpError] = useState(null);
-  const {openLogin, closeSignup } = useContext(LoginContext)
+  const {showLogin,openLogin, closeSignup, openAD,showAddDelivery } = useContext(LoginContext)
 
-  const handleCloseSignUp = () =>{
-    closeSignup()
-  }
+  const handleOpenLogin = () => {
+    closeSignup(); 
+    openLogin();
+  };
 
-  const goToLogin = () =>{
-    openLogin()
-  }
-
+    useEffect(() => {
+      console.log(showLogin,'login shown')
+    
+    }, [showLogin])
+    
   const handleFirstNameChange = (e) => {
     setFirstName(e.target.value);
   };
@@ -89,6 +92,7 @@ const SignUp = (props) => {
     setLastName('');
     setEmail('');
     setPassword('');
+    openAD();
   };
   return (
     <div className="outer--div">
@@ -105,13 +109,13 @@ const SignUp = (props) => {
           <div className="signup--wrapper">
          
           <div className='formlink-div'>
-            <Link onClick={handleCloseSignUp} >x</Link>
+            <Link onClick={()=>closeSignup()} >x</Link>
           </div>
 
           <h2 className="signup--h2">Sign Up to Mealy</h2>
     
           <p className="signup--p">
-            Already have an account? <Link onClick={goToLogin}>Login</Link>
+            Already have an account? <Link onClick={handleOpenLogin}>Login</Link>
 
           </p>
           <img
@@ -125,10 +129,9 @@ const SignUp = (props) => {
               <div className="signup--input--wrapper">
                 <img
                   src={nameIcon}
-                  alt="name icon"
+                  alt="nameicon"
                   className="signup--vectors"
                 />
-                {/* <label htmlFor="firstName">First Name</label> */}
                 <input className="signup--input"
                   placeholder="First Name"
                   type="text"
@@ -145,7 +148,6 @@ const SignUp = (props) => {
                   alt="name icon"
                   className="signup--vectors"
                 />
-                {/* <label htmlFor="lastName">Last Name</label> */}
                 <input className="signup--input"
                   placeholder="Last Name"
                   type="text"
@@ -162,7 +164,6 @@ const SignUp = (props) => {
                   alt="name icon"
                   className="signup--vectors"
                 />
-                {/* <label htmlFor="email">Email</label> */}
                 <input className="signup--input"
                   placeholder="Email"
                   type="email"
@@ -178,7 +179,6 @@ const SignUp = (props) => {
                   alt="name icon"
                   className="signup--vectors"
                 />
-                {/* <label htmlFor="password">Password</label> */}
                 <input className="signup--input"
                   placeholder="Password"
                   type={showPassword ? "text" : "password"}
@@ -202,7 +202,10 @@ const SignUp = (props) => {
             </div>
           </form>
         </div>
+          {showAddDelivery && <AddDelivery/>}
+           {showLogin && <Login/>}
         </div>
+        
 
       )}
     </div>
