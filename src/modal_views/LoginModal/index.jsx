@@ -1,23 +1,30 @@
-import React, { useState } from "react";
-import axios from "axios";
-import "../styles/Login.css";
-import google from "../assets/google.png";
+import { useContext } from "react";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-import { useContext } from "react";
-import { LoginContext } from "./LoginContext";
-import ForgotPassword from "./ForgotPassword";
-import SignUp from "./SignUp";
+import React, { useState } from "react";
+import axios from "axios";
+import google from "../../assets/google.png";
+import { GlobalContext } from "../../context";
 
-function Login(props) {
+import "./LoginModal.css";
+
+const LoginModal = ({ handleCloseLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isPasswordVisible, setPasswordVisible] = useState(false);
-  const {isLoggedin, login, closeLogin, showForgotPw, showFPW, showSignUp, openSignup } = useContext(LoginContext);
+  const { setIsShowModal, setActiveModal } = useContext(GlobalContext);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
+  const handleSignupClick = () => {
+    setIsShowModal(true);
+    setActiveModal("signupModal");
+  };
 
+  const onForgotPassword = () => {
+    setIsShowModal(true);
+    setActiveModal("forgotPasswordModal");
+  };
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -31,18 +38,6 @@ function Login(props) {
     setPasswordVisible(!isPasswordVisible);
   };
 
-  const handleCloseLogin = () =>{
-      closeLogin()
-  }
-
-  const handleShowForgotPassword =()=> {
-    showFPW()
-  }
-
-  const handleOpenSignUp =() =>{
-    openSignup()
-  } 
-
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(email, password);
@@ -52,8 +47,6 @@ function Login(props) {
       email,
       password,
     };
-
-  
 
     setIsLoading(true);
 
@@ -71,20 +64,19 @@ function Login(props) {
         // Handle any errors that occur during the API request
         console.error("API error:", error);
       })
-      .finally(()=>{
-        setIsLoading(false)
+      .finally(() => {
+        setIsLoading(false);
       });
 
     setEmail("");
     setPassword("");
-    
   };
 
-    if (isLoggedin){
-      navigate('landing-page');
-      login();
-      return null
-    }
+  // if (isLoggedin) {
+  //   navigate("landing-page");
+  //   login();
+  //   return null;
+  // }
 
   return (
     <div className="form">
@@ -95,7 +87,8 @@ function Login(props) {
         <header className="header">Login to Mealy</header>
         <div className="form-link">
           <span>
-            Don't have an account? <Link onClick={handleOpenSignUp}>Signup</Link>
+            Don't have an account?{" "}
+            <Link onClick={handleSignupClick}>Signup</Link>
           </span>
         </div>
         <div>
@@ -126,11 +119,13 @@ function Login(props) {
           </div>
 
           <div className="field button-field">
-            <button type="submit" disabled={isLoading} >{isLoading ? "...Loading" : "Submit"}</button>
+            <button type="submit" disabled={isLoading}>
+              {isLoading ? "...Loading" : "Submit"}
+            </button>
           </div>
         </form>
         <div className="">
-          <Link onClick={handleShowForgotPassword}  className="forgot-pass">
+          <Link onClick={onForgotPassword} className="forgot-pass">
             Forgot password?
           </Link>
         </div>
@@ -142,10 +137,8 @@ function Login(props) {
           </Link>
         </div>
       </div>
-      {showForgotPw && <ForgotPassword/>}
-      {showSignUp && <SignUp/>}
     </div>
   );
-}
+};
 
-export default Login;
+export default LoginModal;

@@ -1,13 +1,12 @@
-import React, { useContext, useState } from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
-import '../styles/ForgotPassword.css';
-import { LoginContext } from './LoginContext';
+import React, { useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
-const ForgotPassword = () => {
-  const [email, setEmail] = useState('');
-  const [error, setError] = useState('');
-  const {closeFPW} = useContext(LoginContext)
+import "../styles/ForgotPassword.css";
+
+const ForgotPasswordModal = ({ handleCloseForgotPassword }) => {
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
 
   const handleEmail = (e) => {
     const mail = e.target.value;
@@ -16,7 +15,7 @@ const ForgotPassword = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const url = 'https://mealyapp-bdev.onrender.com/api/v1/user/forgotPassword';
+    const url = "https://mealyapp-bdev.onrender.com/api/v1/user/forgotPassword";
 
     axios
       .post(url, { email })
@@ -25,24 +24,27 @@ const ForgotPassword = () => {
       })
       .catch((err) => {
         console.log(err);
-        setError('An error occurred. Please try again.');
+        setError("An error occurred. Please try again.");
       });
 
-    setEmail('');
+    setEmail("");
   };
-
 
   return (
     <div className="form">
       <div className="form-wrapper">
         <div className="formlink-div">
-          <Link onClick={() => closeFPW()}>x</Link>
+          <Link onClick={handleCloseForgotPassword}>x</Link>
         </div>
         <h3 className="form-title">Forgot Password</h3>
-        <div  >
-            <img className='form-image' src="/images/forgot-password.png" alt="Privacy Policy" />
+        <div>
+          <img
+            className="form-image"
+            src="/images/forgot-password.png"
+            alt="Privacy Policy"
+          />
         </div>
-        
+
         <div className="form-description">
           <p>Please enter your email address to receive a verification code</p>
         </div>
@@ -70,4 +72,4 @@ const ForgotPassword = () => {
   );
 };
 
-export default ForgotPassword;
+export default ForgotPasswordModal;

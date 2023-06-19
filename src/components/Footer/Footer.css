@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Baumans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+body {
+  padding: 0px;
+  margin: 0px;
+}
+
+.footer {
+border-top: 1px solid white;
+  color: white;
+  box-sizing: border-box;
+  padding-top: 60px;
+  height: 360px;
+  width: 100%;
+  background-color: #6750a4;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: space-around;
+}
+
+.footer h1 {
+  line-height: 38px;
+  font-family: "Baumans", cursive;
+  font-size: 3rem;
+  font-weight: 400;
+  color: white;
+}
+
+.footer h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+
+}
+
+.footer a,
+.footer li {
+  text-decoration: none;
+  list-style-type: none;
+  color: white;
+}
+
+.footer li {
+  margin-bottom: 0.2rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.8rem;
+  letter-spacing: 0em;
+  text-align: center;
+}
