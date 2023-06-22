@@ -1,0 +1,66 @@
+.edit-wrapper {
+  position: fixed;
+  align-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.edit-container {
+  background-color: #fff;
+  width: 30rem;
+  padding: 0 3% 3% 3%;
+}
+
+.edit-close {
+  text-align: right;
+  margin-top: 10px;
+}
+
+.edit-container h3 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.edit-form {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-form label {
+  color: rgb(97, 92, 92);
+  font-weight: 500;
+}
+
+.hr-separator {
+  height: 1px;
+  border: none;
+  background-color: gray;
+  margin: 10px 0;
+}
+
+.edit-form input {
+  outline: none;
+}
+
+.edit-container button {
+  background-color: blueviolet;
+  width: 15rem;
+  border-radius: 20px;
+}
+
+.edit-container .button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+  height: 30px;
+}

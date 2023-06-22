@@ -2,9 +2,12 @@ import { useContext } from "react";
 import LoginModal from "./LoginModal";
 import SignupModal from "./SignupModal";
 import AddDeliveryModal from "./AddDeliveryModal";
-import ForgotPasswordModal from "../components/ForgotPasswordModal";
+import ForgotPasswordModal from "./ForgotPasswordModal";
+import CreateNewPasswordModal from "./CreateNewPasswordModal";
+import EditNameModal from "./EditNameModal";
 
 import { GlobalContext } from "../context";
+import EditPassword from "./EditPasswordModal";
 
 const ModalControl = () => {
   const { setIsShowModal, setActiveModal, activeModal } =
@@ -24,6 +27,11 @@ const ModalControl = () => {
     const forgotPasswordModal = (
       <ForgotPasswordModal handleCloseForgotPassword={handleModalClose} />
     );
+    const createNewPasswordModal = (
+      <CreateNewPasswordModal handleCreateNewPassword={handleModalClose} />
+    );
+    const editNameModal = <EditNameModal />;
+    const editPasswordModal = <EditPassword />;
 
     switch (activeModal) {
       case "signupModal":
@@ -34,6 +42,13 @@ const ModalControl = () => {
         return addDeliveryModal;
       case "forgotPasswordModal":
         return forgotPasswordModal;
+      case "createNewPasswordModal":
+        return createNewPasswordModal;
+      case "editNameModal":
+        return editNameModal;
+      case "editPasswordModal":
+        return editPasswordModal;
+
       default:
         return null;
     }

@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
-import "../styles/ForgotPassword.css";
+import "./ForgotPassword.css";
 
 const ForgotPasswordModal = ({ handleCloseForgotPassword }) => {
   const [email, setEmail] = useState("");

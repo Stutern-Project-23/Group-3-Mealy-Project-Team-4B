@@ -1,16 +1,18 @@
 import React from "react";
 import Footer from "../../components/Footer";
-import HomeNav from "../../components/HomeNav";
-import HomeFirstDiv from "../../components/HomeFirstDiv";
-import HomeSecondDiv from "../../components/HomeSecondDiv";
-import HomeThirdDiv from "../../components/HomeThirdDiv";
-import HomeForthDiv from "../../components/HomeForthDiv";
+import HomeNav from "./HomeNav";
+import HomeFirstDiv from "./HomeFirstDiv";
+import HomeSecondDiv from "./HomeSecondDiv";
+import HomeThirdDiv from "./HomeThirdDiv";
+import HomeForthDiv from "./HomeForthDiv";
+import ModalControl from "../../modal_views/ModalControl";
 
 import "./Homepage.css";
 
 const Homepage = () => {
   return (
     <div>
+      <ModalControl />
       <HomeNav />
       <HomeFirstDiv />
       <HomeSecondDiv />

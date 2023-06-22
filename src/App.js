@@ -1,18 +1,18 @@
-import CreateNewPassword from "./components/CreateNewPassword";
-import ForgotPasswordModal from "./components/ForgotPasswordModal";
+import CreateNewPassword from "./modal_views/CreateNewPasswordModal";
+import ForgotPasswordModal from "./modal_views/ForgotPasswordModal";
 import SetDelivery from "./components/SetDelivery";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Homepage from "./pages/Homepage";
-import LandingPage from "./components/LandingPage";
+import LandingPage from "./pages/LandingPage";
 import SignupModal from "./modal_views/SignupModal";
 import LoginModal from "./modal_views/LoginModal";
-import EditName from "./components/EditName";
-import EditPassword from "./components/EditPassword";
+import EditName from "./modal_views/EditNameModal";
+import EditPassword from "./modal_views/EditPasswordModal";
 import { GlobalProvider } from "./context";
 import { PageNotFound } from "./components/PageNotFound";
-import Delivery from "./components/Delivery";
-import { BulkOrder } from "./components/BulkOrder";
-import { Pickup } from "./components/Pickup";
+import Delivery from "./pages/LandingPage/_partials/Delivery";
+import { BulkOrder } from "./pages/LandingPage/_partials/BulkOrder";
+import { Pickup } from "./pages/LandingPage/_partials/Pickup";
 // import Resturant from "./components/Resturant";
 
 import "tailwindcss/tailwind.css";
@@ -23,8 +23,6 @@ function App() {
       <GlobalProvider>
         <BrowserRouter>
           <Routes>
-            {/* <Route path="add-delivery" element={<AddDelivery/>}/> */}
-            {/* <Route path="restaurant" element={<Resturant/>}/> */}
             <Route
               path="landing-page/edit-password"
               element={<EditPassword />}

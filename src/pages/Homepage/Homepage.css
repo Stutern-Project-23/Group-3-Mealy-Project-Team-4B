@@ -1,30 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Baumans&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
-/* body {
-  background-color: #6750a4;
-  width: 1440px;
-} */
-
-/* .home-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #fff;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 2% 5%;
-  z-index: 999;
-}
-
-.nav-divs{
-  display: flex;
-  align-items: center;
-}
-
-
- */
 
 .home-nav {
   display: flex;
@@ -59,7 +34,7 @@
   height: 30px;
 }
 
-.home-nav a{
+.home-nav a {
   text-decoration: none;
   color: black;
 }
@@ -68,47 +43,45 @@
   color: #888;
 }
 
-
 /* style for first container div */
 
-.first-div-container{
+.first-div-container {
   display: flex;
-  padding: 0 0 10% 20% ;
+  padding: 0 0 10% 20%;
   justify-content: space-between;
   margin-top: 10%;
-
 }
 
-.first-div-left{
+.first-div-left {
   width: 35%;
 }
 
-.first-div-left h3,.second-div-container h3, .third-div-container h3{
- 
-
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 500;
-font-size: 2.5rem;
-line-height: 3rem;
-color: #000000;
-margin-bottom: 1.5rem;
+.first-div-left h3,
+.second-div-container h3,
+.third-div-container h3 {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 2.5rem;
+  line-height: 3rem;
+  color: #000000;
+  margin-bottom: 1.5rem;
 }
 
-.first-div-left p,.second-div-container p{
+.first-div-left p,
+.second-div-container p {
   width: 100%;
-height: 150px;
+  height: 150px;
 
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 400;
-font-size: 1.7rem;
-line-height: 2.2rem;
-color: #000000;
-
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.7rem;
+  line-height: 2.2rem;
+  color: #000000;
 }
 
-.first-div-right{
+.first-div-right {
   width: 50%;
 }
 
@@ -117,8 +90,8 @@ color: #000000;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  padding: 7%;
 }
-
 
 /* @media (max-width: 600px) {
   .top-background{
@@ -128,97 +101,95 @@ color: #000000;
   }
   } */
 
-.top-image1{
+.top-image1 {
   width: 65%;
-  position: absolute;
-  left: 2.5rem;
-  top: 1.25rem;
-
+  position: relative;
 }
 
-.top-image2{
+.top-image2 {
   width: 20%;
   position: absolute;
-  bottom: 14.875rem;
-  left: 4.5rem;
-
+  top: 0;
+  right: 0;
+  margin-top: 3%;
+  margin-right: 3%;
 }
 
-.top-image3{
+.top-image3 {
   width: 15%;
   position: absolute;
-  bottom: 5.125rem;
-  right: 2rem;
+  right: 0;
+  margin-right: 10%;
+  top: 12rem;
 }
 
-.top-image4{
+.top-image4 {
   width: 10%;
   position: absolute;
   left: 20.625rem;
+  bottom: 1.5rem;
 }
 
 /* second div style */
 
-.second-div-container{
+.second-div-container {
   display: flex;
   padding: 3% 5% 3% 20%;
   justify-content: space-between;
   margin-bottom: 10%;
-  
 }
 
-.second-div-left{
+.second-div-left {
   background-image: url("/public/images/homepage/mid/mid-background.svg");
   background-repeat: no-repeat;
   background-size: cover;
   width: 35%;
 }
 
-
-.second-image1{
+.second-image1 {
   position: relative;
   left: 8rem;
   top: 5rem;
 }
 
-.second-div-right{
+.second-div-right {
   width: 45%;
 }
 
-.third-div-container{
+.third-div-container {
   padding: 3% 20%;
 }
 
-.third-div-container h3{
+.third-div-container h3 {
   text-align: center;
 }
 
-.third-div-wrapper{
+.third-div-wrapper {
   display: flex;
   gap: 2%;
 }
 
-.third-card-wrapper{
-  border: #67646A 1px solid;
+.third-card-wrapper {
+  border: #67646a 1px solid;
   border-radius: 5px;
 }
 
-.third-div-wrapper .main-image{
+.third-div-wrapper .main-image {
   width: 100%;
 }
 
-.third-div-wrapper .img-h3{
+.third-div-wrapper .img-h3 {
   display: flex;
   gap: 3%;
   margin: 3% 3%;
 }
 
-.forth-div-container{
+.forth-div-container {
   padding: 3% 20% 8%;
 }
 
-.forth-div-container h3{
-  font-family: 'Roboto';
+.forth-div-container h3 {
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 700;
   font-size: 50px;
@@ -226,33 +197,32 @@ color: #000000;
   text-align: center;
   margin-bottom: 2%;
 }
-.forth-div-cards{
+.forth-div-cards {
   display: flex;
 }
 
-h3 span{
-  color: #381E72;
+h3 span {
+  color: #381e72;
 }
 
-.card-wrap{
-  border: 1px solid #67646A;
+.card-wrap {
+  border: 1px solid #67646a;
   padding: 4%;
 }
 
-.first-div-button{
+.first-div-button {
   width: 50%;
   height: 30px;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
-  background-color: #381E72;
+  background-color: #381e72;
   font-size: 20px;
   align-items: center;
   text-align: center;
   letter-spacing: 0.1px;
-  color: #FFFFFF;
+  color: #ffffff;
   border: none;
   border-radius: 10px;
   margin-top: 2%;
-
 }

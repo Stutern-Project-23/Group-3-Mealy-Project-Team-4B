@@ -19,18 +19,6 @@ const SignupModal = ({ handleCloseSignup }) => {
   const [isSignUpSuccessful, setIsSignUpSuccessful] = useState(false);
   const [signUpError, setSignUpError] = useState(null);
   const { setIsShowModal, setActiveModal } = useContext(GlobalContext);
-  // const { showLogin, openLogin, closeSignup, openAD, showAddDelivery } =
-  //   useContext(LoginContext);
-
-  // const handleOpenLogin = () => {
-  //   closeSignup();
-
-  //   openLogin();
-  // };
-
-  // useEffect(() => {
-  //   console.log(showLogin, "login shown");
-  // }, [showLogin]);
 
   const handleLoginClick = () => {
     setIsShowModal(true);
@@ -82,142 +70,132 @@ const SignupModal = ({ handleCloseSignup }) => {
           }
         )
         .then(function (response) {
+          console.log(response, "this is response");
           if (response) {
-            setIsSignUpSuccessful(true);
+            // setIsSignUpSuccessful(true);
             console.log("signup successful", response);
+            setFirstName("");
+            setLastName("");
+            setEmail("");
+            setPassword("");
+            setIsShowModal(true);
+            setActiveModal("addDeliveryModal");
           } else {
             const errorData = response.json();
             setSignUpError(errorData.message);
+            console.log(errorData.response.data.message);
           }
           console.log(response);
         })
         .catch(function (error) {
-          console.log(error);
+          setSignUpError(error.response.data.message);
+          // console.log(error.response.data.message, "this catch error");
         });
     } catch (error) {
       console.error("An error occurred:", error);
-      setSignUpError("An error occurred during sign-up.");
+      setSignUpError(error.message);
     }
-
-    setFirstName("");
-    setLastName("");
-    setEmail("");
-    setPassword("");
-    // openAD();
   };
   return (
     <div className="outer--div">
-      {isSignUpSuccessful ? (
-        <div>
-          <p>
-            Sign-up successful! Please check your email for the verification
-            code.
-          </p>
-          <Link to="/verification">Verify Your Account</Link>
-        </div>
-      ) : (
-        <div className="signup-overlay">
-          <div className="signup--wrapper">
-            <div className="formlink-div">
-              <Link onClick={() => handleCloseSignup()}>x</Link>
-            </div>
-
-            <h2 className="signup--h2">Sign Up to Mealy</h2>
-
-            <p className="signup--p">
-              Already have an account?{" "}
-              {/* <Link onClick={handleOpenLogin}>Login</Link> */}
-              <Link onClick={handleLoginClick}>Login</Link>
-            </p>
-            <img
-              className="signup--img"
-              src={takeAway}
-              alt="dispatch rider with takeout"
-            ></img>
-
-            <form onSubmit={handleSubmit}>
-              <div className="signup--form">
-                <div className="signup--input--wrapper">
-                  <img
-                    src={nameIcon}
-                    alt="nameicon"
-                    className="signup--vectors"
-                  />
-                  <input
-                    className="signup--input"
-                    placeholder="First Name"
-                    type="text"
-                    id="firstName"
-                    name="firstName"
-                    value={firstName}
-                    onChange={handleFirstNameChange}
-                  />
-                </div>
-                <div className="signup--input--wrapper">
-                  <img
-                    src={nameIcon}
-                    alt="name icon"
-                    className="signup--vectors"
-                  />
-                  <input
-                    className="signup--input"
-                    placeholder="Last Name"
-                    type="text"
-                    id="lastName"
-                    value={lastName}
-                    onChange={handleLastNameChange}
-                  />
-                </div>
-
-                <div className="signup--input--wrapper">
-                  <img
-                    src={emailIcon}
-                    alt="name icon"
-                    className="signup--vectors"
-                  />
-                  <input
-                    className="signup--input"
-                    placeholder="Email"
-                    type="email"
-                    id="email"
-                    value={email}
-                    onChange={handleEmailChange}
-                  />
-                </div>
-                <div className="signup--input--wrapper">
-                  <img
-                    src={pwordIcon}
-                    alt="name icon"
-                    className="signup--vectors"
-                  />
-                  <input
-                    className="signup--input"
-                    placeholder="Password"
-                    type={showPassword ? "text" : "password"}
-                    id="password"
-                    value={password}
-                    onChange={handlePasswordChange}
-                  />
-                  <img
-                    src={eyeIcon}
-                    alt="eye icon"
-                    className="password--toggle"
-                    onClick={toggleShowPassword}
-                  />
-                </div>
-              </div>
-              <div>
-                <button className="signup--submit" type="submit">
-                  SIGNUP
-                </button>
-                {signUpError && <p className="signup--error">{signUpError}</p>}
-              </div>
-            </form>
+      <div className="signup-overlay">
+        <div className="signup--wrapper">
+          <div className="formlink-div">
+            <Link onClick={() => handleCloseSignup()}>x</Link>
           </div>
-          {/* {showAddDelivery && <AddDelivery />}
-          {showLogin && <Login />} */}
+
+          <h2 className="signup--h2">Sign Up to Mealy</h2>
+
+          <p className="signup--p">
+            Already have an account?{" "}
+            <Link onClick={handleLoginClick}>Login</Link>
+          </p>
+          <img
+            className="signup--img"
+            src={takeAway}
+            alt="dispatch rider with takeout"
+          ></img>
+
+          <form onSubmit={handleSubmit}>
+            <div className="signup--form">
+              <div className="signup--input--wrapper">
+                <img
+                  src={nameIcon}
+                  alt="nameicon"
+                  className="signup--vectors"
+                />
+                <input
+                  className="signup--input"
+                  placeholder="First Name"
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  value={firstName}
+                  onChange={handleFirstNameChange}
+                />
+              </div>
+              <div className="signup--input--wrapper">
+                <img
+                  src={nameIcon}
+                  alt="name icon"
+                  className="signup--vectors"
+                />
+                <input
+                  className="signup--input"
+                  placeholder="Last Name"
+                  type="text"
+                  id="lastName"
+                  value={lastName}
+                  onChange={handleLastNameChange}
+                />
+              </div>
+
+              <div className="signup--input--wrapper">
+                <img
+                  src={emailIcon}
+                  alt="name icon"
+                  className="signup--vectors"
+                />
+                <input
+                  className="signup--input"
+                  placeholder="Email"
+                  type="email"
+                  id="email"
+                  value={email}
+                  onChange={handleEmailChange}
+                />
+              </div>
+              <div className="signup--input--wrapper">
+                <img
+                  src={pwordIcon}
+                  alt="name icon"
+                  className="signup--vectors"
+                />
+                <input
+                  className="signup--input"
+                  placeholder="Password"
+                  type={showPassword ? "text" : "password"}
+                  id="password"
+                  value={password}
+                  onChange={handlePasswordChange}
+                />
+                <img
+                  src={eyeIcon}
+                  alt="eye icon"
+                  className="password--toggle"
+                  onClick={toggleShowPassword}
+                />
+              </div>
+            </div>
+            <div>
+              <button className="signup--submit" type="submit">
+                SIGNUP
+              </button>
+              {signUpError && <p className="signup--error">{signUpError}</p>}
+            </div>
+          </form>
         </div>
-      )}
+      </div>
     </div>
   );
 };

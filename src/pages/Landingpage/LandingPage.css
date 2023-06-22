@@ -1,0 +1,143 @@
+.land-page-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2%;
+  gap: 2%;
+  background-color: #fff;
+  position: fixed;
+  width: 100%;
+  border-bottom: #ccc solid 1px;
+}
+
+.mealy-address {
+  display: flex;
+}
+
+.dropdown {
+  display: flex;
+}
+/* generated */
+.dropdown {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+.dropdown img {
+  width: 13px;
+  height: 13px;
+  margin-right: 8px;
+}
+
+.dropdown p {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #333333;
+  font-weight: 500;
+  margin-right: 5px;
+}
+
+.dropdown:hover p {
+  color: #000000;
+}
+
+.profile-image {
+  width: 3.5rem;
+}
+
+/* generated */
+
+.dropdown-link {
+  position: absolute;
+  z-index: 1;
+  background-color: #fff;
+}
+
+.dropdown-link a {
+  text-decoration: none;
+  text-align: left;
+  margin-bottom: 3px;
+}
+
+.mealy-logo {
+  height: 50px;
+  width: 200px;
+}
+
+nav a.active {
+  font-weight: bold;
+  background-color: #6750a4;
+  color: #fff;
+}
+
+.dropdown-btn {
+  width: 7rem;
+  border: none;
+  background-color: white;
+  font-weight: 700;
+}
+
+.nav-form {
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  width: 20rem;
+  background-color: #ccc;
+  padding: 2% 10%;
+  margin-right: 3%;
+}
+
+.nav-form input {
+  background-color: #ccc;
+  outline: none;
+  text-align: center;
+}
+
+.form-div {
+  display: flex;
+  flex-direction: row;
+  gap: 2%;
+}
+
+.form-div div {
+  align-items: end;
+}
+
+/* category card styling */
+
+.profile-div {
+  display: flex;
+}
+
+.category-div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.nav-links ul {
+  display: inline-flex;
+  gap: 7%;
+  width: 50%;
+}
+
+.nav-links li {
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.nav-links a.active {
+  color: #6750a4;
+}
+
+.nav-link-container {
+  padding-left: 7%;
+}
