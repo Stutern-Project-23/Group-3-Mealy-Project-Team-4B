@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import { GlobalContext } from "../context";
 
 const UserProfile = (props) => {
@@ -35,6 +35,10 @@ const UserProfile = (props) => {
   const handleOpenEditPassword = () => {
     setIsShowModal(true);
     setActiveModal("editPasswordModal");
+  };
+  const navigate = useNavigate();
+  const handleLoggout = () => {
+    navigate("/");
   };
 
   return (
@@ -91,7 +95,7 @@ const UserProfile = (props) => {
             </p>
           </div>
           <div>
-            <button onClick={props.handleLoggout}>
+            <button onClick={handleLoggout}>
               <img src="images/power.svg" alt="power-button" />
               Log out
             </button>

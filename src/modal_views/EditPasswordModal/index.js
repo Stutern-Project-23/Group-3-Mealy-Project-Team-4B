@@ -22,12 +22,12 @@ const EditPassword = () => {
 
   const handleNewPassword = (e) => {
     const newPasswordValue = e.target.value;
-    setOldPassword(newPasswordValue);
+    setNewPassword(newPasswordValue);
   };
 
   const handleReEnterNewPassword = (e) => {
     const reNewPasswordValue = e.target.value;
-    setOldPassword(reNewPasswordValue);
+    setReEnterNewPassword(reNewPasswordValue);
   };
 
   return (

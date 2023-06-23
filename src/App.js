@@ -11,8 +11,8 @@ import EditPassword from "./modal_views/EditPasswordModal";
 import { GlobalProvider } from "./context";
 import { PageNotFound } from "./components/PageNotFound";
 import Delivery from "./pages/LandingPage/_partials/Delivery";
-import { BulkOrder } from "./pages/LandingPage/_partials/BulkOrder";
-import { Pickup } from "./pages/LandingPage/_partials/Pickup";
+import BulkOrder from "./pages/LandingPage/_partials/BulkOrder";
+import Pickup from "./pages/LandingPage/_partials/Pickup";
 // import Resturant from "./components/Resturant";
 
 import "tailwindcss/tailwind.css";

@@ -52,7 +52,6 @@ const SignupModal = ({ handleCloseSignup }) => {
       userName: `${firstName} ${lastName}`,
       email: email,
       password: password,
-      userAddress: "69, bamaka street",
     };
 
     try {

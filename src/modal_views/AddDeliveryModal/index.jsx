@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
@@ -8,6 +8,7 @@ const AddDeliveryModal = ({ handleCloseAddDelivery }) => {
   const [locationSearch, setLocationSearch] = useState("");
   const [address, setAddress] = useState("");
   const [error, setError] = useState(null);
+  const [coordinates, setCoordinates] = useState(null);
 
   const handleLocationSearch = (e) => {
     setLocationSearch(e.target.value);
@@ -19,17 +20,15 @@ const AddDeliveryModal = ({ handleCloseAddDelivery }) => {
 
     // Submit the location information to another API
     const data = {
-      address: address,
+      userAddress: address,
     };
 
     axios
-      .post("https://example.com/submit-location", data)
+      .post("https://mealyapp-bdev.onrender.com/api/v1/user/Signup", data)
       .then((response) => {
-        // Handle the response from the submit location API
         console.log("Location submitted successfully:", response.data);
       })
       .catch((error) => {
-        // Handle any error that occurred during the API request
         setError(
           "An error occurred while submitting the location. Please try again later."
         );
@@ -38,49 +37,39 @@ const AddDeliveryModal = ({ handleCloseAddDelivery }) => {
   };
 
   const handleCurrentLocationClick = () => {
-    // Check if the Geolocation API is supported by the browser
-    if ("geolocation" in navigator) {
+    if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const { latitude, longitude } = position.coords;
-          // Perform API request to Geoapify Geocoding API using Axios
-          const apiKey = "bb980446e4d641e78055b76a60acc293";
-          axios
-            .get(
-              `https://api.geoapify.com/v1/geocode/reverse?lat=${latitude}&lon=${longitude}&apiKey=${apiKey}`
-            )
-            .then((response) => {
-              // Handle the geocoding API response data
-              const result = response.data.features[0];
-              if (result) {
-                const addressDetails = result.properties;
-                const houseNumber = addressDetails.housenumber || "";
-                const street = addressDetails.street || "";
-                const formattedAddress = `${houseNumber} ${street}`;
-                setAddress(formattedAddress);
-                // Call the handleLocationSubmit function to submit the location
-                handleLocationSubmit();
-              } else {
-                setError("No results found for the current location.");
-              }
-            })
-            .catch((error) => {
-              // Handle any error that occurred during the API request
-              setError(
-                "An error occurred while fetching the location. Please try again later."
-              );
-              console.error("Error:", error);
-            });
+          setCoordinates({ lat: latitude, lon: longitude });
         },
         (error) => {
-          setError("Failed to retrieve your current location.");
-          console.error("Error:", error);
+          console.log("Error:", error);
         }
       );
     } else {
-      setError("Geolocation is not supported by your browser.");
+      console.log("Geolocation is not supported by this browser");
     }
   };
+
+  useEffect(() => {
+    if (coordinates) {
+      const { lat, lon } = coordinates;
+      const reverseGeocodeUrl = `https://api.geoapify.com/v1/geocode/reverse?lat=${lat}&lon=${lon}&apiKey=bb980446e4d641e78055b76a60acc293`;
+
+      axios
+        .get(reverseGeocodeUrl)
+        .then((response) => {
+          const formattedAddress =
+            response.data.features[0].properties.formatted;
+          setAddress(formattedAddress);
+          handleLocationSubmit();
+        })
+        .catch((error) => {
+          console.log("Error:", error);
+        });
+    }
+  }, [coordinates]);
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
@@ -96,7 +85,6 @@ const AddDeliveryModal = ({ handleCloseAddDelivery }) => {
             <div className="x-div">
               <Link onClick={handleCloseAddDelivery}>x</Link>
             </div>
-
             <h2> Add a delivery address </h2>
           </div>
           <div className="address">
