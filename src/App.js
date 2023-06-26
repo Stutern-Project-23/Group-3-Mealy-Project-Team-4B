@@ -16,6 +16,7 @@ import Pickup from "./pages/LandingPage/_partials/Pickup";
 // import Resturant from "./components/Resturant";
 
 import "tailwindcss/tailwind.css";
+import Resturant from "./components/Resturant";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
               path="landing-page/edit-password"
               element={<EditPassword />}
             />
+            <Route path="resturant" element={<Resturant />} />
             <Route path="landing-page/edit-name" element={<EditName />} />
             <Route path="/" element={<Homepage />} />
             <Route path="set-delivery" element={<SetDelivery />} />

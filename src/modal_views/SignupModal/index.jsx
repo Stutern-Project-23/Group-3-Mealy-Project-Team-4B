@@ -52,6 +52,7 @@ const SignupModal = ({ handleCloseSignup }) => {
       userName: `${firstName} ${lastName}`,
       email: email,
       password: password,
+      userAddress: "69, bamaka street",
     };
 
     try {
@@ -88,7 +89,6 @@ const SignupModal = ({ handleCloseSignup }) => {
         })
         .catch(function (error) {
           setSignUpError(error.response.data.message);
-          // console.log(error.response.data.message, "this catch error");
         });
     } catch (error) {
       console.error("An error occurred:", error);

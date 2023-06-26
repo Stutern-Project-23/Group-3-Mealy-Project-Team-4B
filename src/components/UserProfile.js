@@ -1,27 +1,28 @@
-import axios from "axios";
-import React, { useContext, useEffect, useState } from "react";
+// import axios from "axios";
+import React, { useContext, useState } from "react";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import { GlobalContext } from "../context";
 
 const UserProfile = (props) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [userData, setUserData] = useState("");
-  const { setIsShowModal, setActiveModal } = useContext(GlobalContext);
+  // const [userData, setUserData] = useState("");
+  const { setIsShowModal, setActiveModal, userData } =
+    useContext(GlobalContext);
 
-  useEffect(() => {
-    fetchUserData();
-  }, []);
+  // useEffect(() => {
+  //   fetchUserData();
+  // }, []);
 
-  const fetchUserData = async () => {
-    const url = "";
-    try {
-      const res = await axios.get(url);
-      const data = res.data;
-      setUserData(data);
-    } catch (err) {
-      console.log("Error fetching user data", err);
-    }
-  };
+  // const fetchUserData = async () => {
+  //   const url = "";
+  //   try {
+  //     const res = await axios.get(url);
+  //     const data = res.data;
+  //     setUserData(data);
+  //   } catch (err) {
+  //     console.log("Error fetching user data", err);
+  //   }
+  // };
 
   const handleDropdown = () => {
     setIsOpen(!isOpen);
@@ -37,7 +38,7 @@ const UserProfile = (props) => {
     setActiveModal("editPasswordModal");
   };
   const navigate = useNavigate();
-  const handleLoggout = () => {
+  const handleLogout = () => {
     navigate("/");
   };
 
@@ -54,18 +55,18 @@ const UserProfile = (props) => {
       </div>
       {isOpen && (
         <div className="profile-dropdown">
-          <h2>{`hello ${userData.name}`}</h2>
+          <h2>{`Hello: ${userData.userName}`}</h2>
           <div>
             <div className="profile-edit">
-              <h4>Name </h4>
+              <h4> name</h4>
               <Link onClick={handleOpenEditName}>Edit</Link>
             </div>
 
-            <p>{userData.name}</p>
+            <p>{userData.userName}</p>
           </div>
           <div>
             <h4>Email </h4>
-            <p>{userData.email}</p>
+            <p>{userData?.email}</p>
           </div>
           <hr />
           <div>
@@ -74,7 +75,7 @@ const UserProfile = (props) => {
               <Link onClick={handleOpenEditPassword}>Edit</Link>
             </div>
 
-            <p>{userData.password}</p>
+            <p>{userData?.password}</p>
           </div>
           <hr />
           <div>
@@ -95,7 +96,7 @@ const UserProfile = (props) => {
             </p>
           </div>
           <div>
-            <button onClick={handleLoggout}>
+            <button onClick={handleLogout}>
               <img src="images/power.svg" alt="power-button" />
               Log out
             </button>

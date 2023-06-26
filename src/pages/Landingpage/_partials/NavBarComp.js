@@ -9,7 +9,14 @@ import { GlobalContext } from "../../../context";
 const NavBarComp = ({ showSearchInput }) => {
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const { logout } = useContext(GlobalContext);
+  const { logout, setActiveModal, setIsShowModal, userData } =
+    useContext(GlobalContext);
+  // const [address, setAddress] = useState("");
+
+  const toggleShowAddress = () => {
+    setIsShowModal(true);
+    setActiveModal("addDeliveryModal");
+  };
 
   const handleChange = (e) => {
     const searchQuery = e.target.value;
@@ -44,9 +51,11 @@ const NavBarComp = ({ showSearchInput }) => {
     }
   };
 
-  const handleLoggout = () => {
+  const handleLogout = () => {
     logout();
   };
+
+  const address = userData?.userAddress;
 
   return (
     <nav className="land-page-nav">
@@ -55,10 +64,12 @@ const NavBarComp = ({ showSearchInput }) => {
           <img src="images/mealy-logo.svg" alt="mealy-log" />
         </div>
 
-        <div className="dropdown">
-          <img src="images/location-pin.svg" alt="location-pin" />
-          <p>address</p>
-          <img src="images/dropdown.svg" alt="dropdown" />
+        <div>
+          <button className="dropdown" onClick={toggleShowAddress}>
+            <img src="images/location-pin.svg" alt="location-pin" />
+            <p>{address}</p>
+            <img src="images/dropdown.svg" alt="dropdown" />
+          </button>
         </div>
       </div>
 
@@ -82,7 +93,7 @@ const NavBarComp = ({ showSearchInput }) => {
               img="profile.svg"
               className="authentication-dropdown dropdown-link"
             />
-            <UserProfile handleLoggout={handleLoggout} />
+            <UserProfile handleLogout={handleLogout} />
           </div>
         </div>
         <ul>

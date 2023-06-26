@@ -12,7 +12,8 @@ const LoginModal = ({ handleCloseLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isPasswordVisible, setPasswordVisible] = useState(false);
-  const { setIsShowModal, setActiveModal } = useContext(GlobalContext);
+  const { setIsShowModal, setActiveModal, setUserData } =
+    useContext(GlobalContext);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -40,7 +41,6 @@ const LoginModal = ({ handleCloseLogin }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email, password);
 
     // Prepare the data payload
     const data = {
@@ -58,6 +58,13 @@ const LoginModal = ({ handleCloseLogin }) => {
         console.log("API response:", response.data);
         // Redirect to a different page after successful login
         navigate("/landing-page");
+        console.log(response.data, "response data:");
+        localStorage.setItem("token", response.data.data.access_token);
+        const userData = response.data.data.user;
+        console.log(userData, "user data:");
+        setUserData(userData);
+        setEmail("");
+        setPassword("");
       })
 
       .catch((error) => {
@@ -67,9 +74,6 @@ const LoginModal = ({ handleCloseLogin }) => {
       .finally(() => {
         setIsLoading(false);
       });
-
-    setEmail("");
-    setPassword("");
   };
 
   // if (isLoggedin) {

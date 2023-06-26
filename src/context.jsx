@@ -7,12 +7,16 @@ const GlobalContext = createContext({
   setActiveModal: () => {},
   isLoggedin: false,
   setIsLoggedin: () => {},
+  userData: {},
+  setUserData: () => {},
 });
 
 const GlobalProvider = ({ children }) => {
   const [isShowModal, setIsShowModal] = useState(false);
   const [activeModal, setActiveModal] = useState("");
   const [isLoggedin, setIsLoggedin] = useState(false);
+  const [showSearchInput, setShowSearchInput] = useState(false);
+  const [userData, setUserData] = useState(null);
 
   return (
     <GlobalContext.Provider
@@ -23,6 +27,10 @@ const GlobalProvider = ({ children }) => {
         setActiveModal,
         isLoggedin,
         setIsLoggedin,
+        showSearchInput,
+        setShowSearchInput,
+        userData,
+        setUserData,
       }}
     >
       {children}
