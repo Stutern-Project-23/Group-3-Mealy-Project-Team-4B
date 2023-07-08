@@ -1,0 +1,65 @@
+.land-page-nav{
+    display: flex;
+    flex-direction: row;
+    padding: 2%;
+    gap: 2%;
+    background-color: #fff;
+    position: fixed;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+}
+
+.righ-nav{
+    display: flex;
+}
+.mealy-logo{
+    height: 50px;
+    width: 200px;
+}
+
+.form-div{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.nav-form{
+    border-radius: 5px;
+    height: 40px;
+    padding: 3px;
+    background-color: #ccc;
+    width: 100%;
+    margin-right: 1rem;
+
+    
+}
+
+.nav-form input{
+    background-color: #ccc;
+    outline: none;
+    text-align: center;
+    padding-top: 3px;
+}
+.address-link{
+    display: flex;
+    gap: 2px;
+    font-family: 'roboto';
+    font-weight: 500;
+}
+
+.nav-profile{
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-profile .img1{
+    width: 40px;
+}
+
+.nav-profile .img2{
+    width: 55px;
+}
+
+
+

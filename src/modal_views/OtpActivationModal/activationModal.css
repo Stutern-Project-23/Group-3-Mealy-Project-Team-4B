@@ -1,0 +1,72 @@
+.activation-wrapper {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+}
+
+.activation-container {
+  justify-content: center;
+  width: 50%;
+  height: 85%;
+  background-color: white;
+  padding: 1% 3%;
+}
+.activation-close a {
+  text-decoration: none;
+  color: black;
+}
+.activation-close {
+  text-align: right;
+}
+.activation-image img {
+}
+
+.activation-image {
+  display: flex;
+  justify-content: center;
+}
+
+.activation-h3p h3 {
+  font-family: "roboto", sans-serif;
+  text-align: center;
+}
+
+.activation-h3p p {
+  font-family: "roboto", sans-serif;
+  text-align: center;
+}
+
+.activation-inputs {
+  padding: 3%;
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+}
+
+.activation-code-input {
+  width: 3rem;
+  height: 3rem;
+  text-align: center;
+  outline: none;
+}
+
+.activation-button {
+  display: flex;
+  justify-content: center;
+  padding: 2%;
+}
+.activation-button button {
+  width: 30rem;
+  height: 2.5rem;
+  background-color: #6750a4;
+  border: none;
+  cursor: pointer;
+  font-family: "roboto", sans-serif;
+  font-size: 1rem;
+  color: white;
+}

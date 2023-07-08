@@ -1,85 +1,92 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { BsSearch } from "react-icons/bs";
-import MealData from "./MealData";
+import { GlobalContext } from "../context";
 import Cart from "./Cart";
-import { AiTwotoneStar } from "react-icons/ai";
+import dish from "../assets/dish.svg";
+// import "../pages/RestaurantMenu/RestaurantMenu.css";
+// import cartModal from "../modal_views/CartModal";
 
 const SideSec = () => {
+  const { setActiveModal, restaurantData, setCartModalData, setIsShowModal } =
+    useContext(GlobalContext);
   const [active, setActive] = useState("Specials");
 
+  const handleCartModalName = (menu) => {
+    setIsShowModal(true);
+    setActiveModal("cartModal");
+    setCartModalData(menu);
+    console.log(menu);
+  };
+
+  if (!restaurantData) {
+    return <p>Loading...</p>;
+  }
+
   return (
-    <main className="py-5 md:flex justify-center px-3 md:px-20 gap-5 md:py-10">
+    <main className="sidesec-main">
       <section>
-        <h1 className="text-2xl font-medium">Breakfast Hub</h1>
-        <p className="text-lg">Good food to start your day right</p>
-        <div className="flex items-center gap-2">
-          <div className="flex gap-1 text-yellow-500 text-xl">
-            <AiTwotoneStar />
-            <AiTwotoneStar />
-            <AiTwotoneStar />
-            <AiTwotoneStar />
-          </div>
-          <p>4.6 Excellent (70+)</p>
+        <div className="sidesec-header">
+          <h3>{restaurantData.name}</h3>
+          <p>Good food to start your day right</p>
+          <p>
+            <span>⭐⭐⭐⭐⭐</span> 4.6 Excellent (70+)
+          </p>
         </div>
-        <div className="w-full flex items-center justify-center text-lg mt-3 pt-1 pb-2  px-3 bg-gray-200">
-          <input
-            type="search"
-            className="placeholder:text-black h-full w-full bg-transparent focus:outline-none  rounded-xl mt-3 text-black"
-            placeholder="Search menu items"
-          />
+        <div className="sidesec-search">
+          <input type="search" placeholder="Search menu items" />
           <BsSearch />
         </div>
-        <hr className="w-full h-1 bg-gray-400 mt-3 rounded" />
-        <div className="my-3 flex w-full justify-between items-center">
+        <hr />
+        <div className="sidesec-note">
+          <p>Note: Bulk order takes 24hours</p>
+        </div>
+        <div className="sidesec-button">
           <button
-            onClick={() => {
-              setActive("Specials");
-            }}
+            onClick={() => setActive("Specials")}
             className={`${active === "Specials" && "active"}`}
           >
             Specials
           </button>
           <button
-            onClick={() => {
-              setActive("Quick Fixes");
-            }}
+            onClick={() => setActive("Quick Fixes")}
             className={`${active === "Quick Fixes" && "active"}`}
           >
             Quick Fixes
           </button>
           <button
-            onClick={() => {
-              setActive("Extras & Sides");
-            }}
+            onClick={() => setActive("Extras & Sides")}
             className={`${active === "Extras & Sides" && "active"}`}
           >
             Extras & Sides
           </button>
         </div>
         <article>
-          <h2 className="bg-gray-200 py-2 px-3 text-lg font-semibold">
-            {active}
-          </h2>
-          {MealData.map((item) => {
-            return (
-              <div
-                className="grid grid-cols-3 gap-1 px-2 place-items-center py-4 border-2"
-                key={item.id}
-              >
-                <div className="col-start-1 col-end-3">
-                  <h3 className="text-lg font-semibold">{item.heading}</h3>
-                  <p className="text-sm my-2">{item.text}</p>
-                  <h4 className="text-normal font-semibold">
-                    ${item.price.toLocaleString()}
-                  </h4>
+          <div className="sidesec-active">
+            <h2>{active}</h2>
+          </div>
+          {restaurantData.menu.map((menuItem, index) => (
+            <div className="sidesec-menu-item" key={index}>
+              <div className="sidesec-right">
+                <div>
+                  <h3 onClick={() => handleCartModalName(menuItem)}>
+                    {menuItem}
+                  </h3>
                 </div>
-                <img src={item.img} alt={item.heading} />
+                <div>
+                  <p>{menuItem} and bread serving 15 people</p>
+                </div>
+                <div>$ 5000</div>
               </div>
-            );
-          })}
+              <div className="sidesec-left">
+                <img src={dish} alt="dish" />
+              </div>
+            </div>
+          ))}
         </article>
       </section>
-      <Cart />
+      <div className="left-cart">
+        <Cart />
+      </div>
     </main>
   );
 };

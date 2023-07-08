@@ -5,9 +5,11 @@ import AddDeliveryModal from "./AddDeliveryModal";
 import ForgotPasswordModal from "./ForgotPasswordModal";
 import CreateNewPasswordModal from "./CreateNewPasswordModal";
 import EditNameModal from "./EditNameModal";
+import OtpActivationModal from "../modal_views/OtpActivationModal";
 
 import { GlobalContext } from "../context";
 import EditPassword from "./EditPasswordModal";
+import CartModal from "./CartModal";
 
 const ModalControl = () => {
   const { setIsShowModal, setActiveModal, activeModal } =
@@ -30,6 +32,11 @@ const ModalControl = () => {
     const createNewPasswordModal = (
       <CreateNewPasswordModal handleCreateNewPassword={handleModalClose} />
     );
+
+    const otpActivationModal = (
+      <OtpActivationModal handleCloseOtpModal={handleModalClose} />
+    );
+    const cartModal = <CartModal handleCartModalClose={handleModalClose} />;
     const editNameModal = <EditNameModal />;
     const editPasswordModal = <EditPassword />;
 
@@ -48,6 +55,10 @@ const ModalControl = () => {
         return editNameModal;
       case "editPasswordModal":
         return editPasswordModal;
+      case "otpActivationModal":
+        return otpActivationModal;
+      case "cartModal":
+        return cartModal;
 
       default:
         return null;

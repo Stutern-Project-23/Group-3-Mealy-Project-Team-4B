@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./ForgotPassword.css";
 
 const ForgotPasswordModal = ({ handleCloseForgotPassword }) => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+
+  const navigate = useNavigate();
 
   const handleEmail = (e) => {
     const mail = e.target.value;
@@ -20,6 +23,12 @@ const ForgotPasswordModal = ({ handleCloseForgotPassword }) => {
       .post(url, { email })
       .then((res) => {
         console.log(res.data);
+        setSuccessMessage(res.data);
+        if (res.data.status === "success") {
+          navigate("/create-new-password");
+        } else {
+          setError(res.data.message);
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -57,15 +66,10 @@ const ForgotPasswordModal = ({ handleCloseForgotPassword }) => {
               value={email}
               required
             />
-            {error && <p className="error-message">{error}</p>}
-          </div>
-
-          <div className="form-field">
-            <button className="submit-button" type="submit">
-              Send
-            </button>
           </div>
         </form>
+        {successMessage && <p className="success-message">{successMessage}</p>}
+        {error && <p className="error-message">{error}</p>}
       </div>
     </div>
   );

@@ -1,7 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import { GlobalContext } from "../context";
+import chinese from "../assets/chinese.svg";
 
 const Delivery = () => {
   const [deliveryRestaurants, setDeliveryRestaurants] = useState([]);
+  const { setRestaurantData } = useContext(GlobalContext);
+  const { restaurantId } = useParams();
 
   useEffect(() => {
     fetch(
@@ -17,6 +22,7 @@ const Delivery = () => {
               restaurant.deliveryCategory === "Delivery"
           );
           setDeliveryRestaurants(delivery);
+          console.log("this data is:", delivery);
         } else {
           console.error("API request failed:", data.message);
         }
@@ -27,11 +33,22 @@ const Delivery = () => {
   }, []);
 
   return (
-    <div>
-      <h3>Restaurants offering Delivery:</h3>
+    <div className="category-delivery-container">
       <ul>
         {deliveryRestaurants.map((restaurant) => (
-          <li key={restaurant._id}>{restaurant.name}</li>
+          <div
+            onClick={() => setRestaurantData(restaurant)}
+            key={restaurant._id}
+            className="all-category-container"
+          >
+            <img src={chinese} alt="african" />
+
+            <h3>
+              <Link to={`/restaurant-menu/${restaurant.name}`}>
+                {restaurant.name}
+              </Link>
+            </h3>
+          </div>
         ))}
       </ul>
     </div>

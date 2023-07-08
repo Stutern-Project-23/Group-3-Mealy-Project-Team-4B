@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import search from "../../assets/search.svg";
+import locationIcon from "../../assets/location-icon.svg";
+import sideImg from "../../assets/side-img.svg";
 
 import "./AddDeliveryModal.css";
 
@@ -63,7 +66,8 @@ const AddDeliveryModal = ({ handleCloseAddDelivery }) => {
           const formattedAddress =
             response.data.features[0].properties.formatted;
           setAddress(formattedAddress);
-          handleLocationSubmit();
+          setLocationSearch(formattedAddress);
+          // handleLocationSubmit();
         })
         .catch((error) => {
           console.log("Error:", error);
@@ -90,7 +94,7 @@ const AddDeliveryModal = ({ handleCloseAddDelivery }) => {
           <div className="address">
             <form onSubmit={handleLocationSubmit}>
               <div className="delivery-search">
-                <img src="images/location/search.svg" alt="search" />
+                <img src={search} alt="search" />
                 <input
                   onChange={handleLocationSearch}
                   onKeyDown={handleKeyDown}
@@ -102,7 +106,7 @@ const AddDeliveryModal = ({ handleCloseAddDelivery }) => {
             </form>
           </div>
           <div className="location">
-            <img src="images/location/location-icon.svg" alt="location" />
+            <img src={locationIcon} alt="location" />
             <Link onClick={handleCurrentLocationClick}>
               Use current location
             </Link>
@@ -122,7 +126,7 @@ const AddDeliveryModal = ({ handleCloseAddDelivery }) => {
           </div>
         </div>
         <div className="right-div">
-          <img src="images/location/side-img.svg" alt="side" />
+          <img src={sideImg} alt="side" />
         </div>
       </div>
     </div>

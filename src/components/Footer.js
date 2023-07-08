@@ -1,9 +1,10 @@
 import React from "react";
+import mealy from "../assets/MEALY.svg";
 import FooterLinks from "./FooterLinks";
 
 const Footer = () => {
   const footerLinks = [
-    { src: "images/MEALY.svg" },
+    { src: mealy },
     {
       header: "Links of interest",
       link1: "About us",

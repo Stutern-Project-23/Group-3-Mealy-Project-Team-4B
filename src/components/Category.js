@@ -1,31 +1,37 @@
 import React from "react";
 import CategoryCard from "./CategoryCard";
+import chinese from "../assets/chinese.svg";
+import combo from "../assets/combo.svg";
+import african from "../assets/african.svg";
+import dinner from "../assets/dinner.svg";
+import lunch from "../assets/lunch.svg";
+import breakfast from "../assets/breakfast.svg";
 
 const Category = () => {
   const cards = [
     {
       name: "Chinese",
-      src: "chinese.svg",
+      src: chinese,
     },
     {
       name: "African",
-      src: "african.svg",
+      src: african,
     },
     {
       name: "Breakfast",
-      src: "breakfast.svg",
+      src: breakfast,
     },
     {
       name: "Lunch",
-      src: "lunch.svg",
+      src: lunch,
     },
     {
       name: "Dinner",
-      src: "dinner.svg",
+      src: dinner,
     },
     {
       name: "Combo",
-      src: "combo.svg",
+      src: combo,
     },
   ];
 

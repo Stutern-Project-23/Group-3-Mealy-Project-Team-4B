@@ -9,6 +9,10 @@ const GlobalContext = createContext({
   setIsLoggedin: () => {},
   userData: {},
   setUserData: () => {},
+  deliveryRestaurantData: {},
+  setDeliveryRestaurantData: () => {},
+  cartModalData: {},
+  setCartModalData: () => {},
 });
 
 const GlobalProvider = ({ children }) => {
@@ -17,6 +21,8 @@ const GlobalProvider = ({ children }) => {
   const [isLoggedin, setIsLoggedin] = useState(false);
   const [showSearchInput, setShowSearchInput] = useState(false);
   const [userData, setUserData] = useState(null);
+  const [restaurantData, setRestaurantData] = useState([]);
+  const [cartModalData, setCartModalData] = useState(null);
 
   return (
     <GlobalContext.Provider
@@ -31,6 +37,10 @@ const GlobalProvider = ({ children }) => {
         setShowSearchInput,
         userData,
         setUserData,
+        restaurantData,
+        setRestaurantData,
+        cartModalData,
+        setCartModalData,
       }}
     >
       {children}

@@ -1,7 +1,7 @@
 import React from "react";
-import NavBarComp from "./_partials/NavBarComp";
-import Category from "./_partials/Category";
-import NavLinks from "./_partials/NavLinks";
+import NavBarComp from "../../components/NavBarComp";
+import Category from "../../components/Category";
+import NavLinks from "../../components/NavLinks";
 import Footer from "../../components/Footer";
 import ModalControl from "../../modal_views/ModalControl";
 

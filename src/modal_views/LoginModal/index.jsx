@@ -65,6 +65,8 @@ const LoginModal = ({ handleCloseLogin }) => {
         setUserData(userData);
         setEmail("");
         setPassword("");
+        setIsShowModal(false);
+        setActiveModal("");
       })
 
       .catch((error) => {
@@ -106,6 +108,7 @@ const LoginModal = ({ handleCloseLogin }) => {
               placeholder="Email"
               className="input"
               value={email}
+              required
             />
           </div>
 
@@ -116,6 +119,7 @@ const LoginModal = ({ handleCloseLogin }) => {
               placeholder="Password"
               className="password"
               value={password}
+              required
             />
             <span className="eye-icon" onClick={togglePasswordVisibility}>
               {isPasswordVisible ? <FaEye /> : <FaEyeSlash />}

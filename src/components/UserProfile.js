@@ -2,27 +2,14 @@
 import React, { useContext, useState } from "react";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import { GlobalContext } from "../context";
+import money from "../assets/money.svg";
+import power from "../assets/power.svg";
 
 const UserProfile = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   // const [userData, setUserData] = useState("");
   const { setIsShowModal, setActiveModal, userData } =
     useContext(GlobalContext);
-
-  // useEffect(() => {
-  //   fetchUserData();
-  // }, []);
-
-  // const fetchUserData = async () => {
-  //   const url = "";
-  //   try {
-  //     const res = await axios.get(url);
-  //     const data = res.data;
-  //     setUserData(data);
-  //   } catch (err) {
-  //     console.log("Error fetching user data", err);
-  //   }
-  // };
 
   const handleDropdown = () => {
     setIsOpen(!isOpen);
@@ -55,7 +42,7 @@ const UserProfile = (props) => {
       </div>
       {isOpen && (
         <div className="profile-dropdown">
-          <h2>{`Hello: ${userData.userName}`}</h2>
+          <h2>{`Hello: ${userData?.userName}`}</h2>
           <div>
             <div className="profile-edit">
               <h4> name</h4>
@@ -75,14 +62,14 @@ const UserProfile = (props) => {
               <Link onClick={handleOpenEditPassword}>Edit</Link>
             </div>
 
-            <p>{userData?.password}</p>
+            <p></p>
           </div>
           <hr />
           <div>
             <h3>Payment method </h3>
             <p>
               <span>
-                <img src="images/money.svg" alt="money" />
+                <img src={money} alt="money" />
               </span>
               Add a new card
             </p>
@@ -90,14 +77,14 @@ const UserProfile = (props) => {
           <div>
             <p>
               <span>
-                <img src="images/money.svg" alt="money" />
+                <img src={money} alt="money" />
               </span>
               Wallet
             </p>
           </div>
           <div>
             <button onClick={handleLogout}>
-              <img src="images/power.svg" alt="power-button" />
+              <img src={power} alt="power-button" />
               Log out
             </button>
           </div>

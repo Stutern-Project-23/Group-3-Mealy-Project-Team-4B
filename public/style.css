@@ -132,7 +132,7 @@ body {
   background-color: #fff;
   border: 1px solid #ccc;
   padding: 10px;
-  width: 300px;
+  width: 20rem;
 }
 .profile-dropdown div {
   margin-bottom: 10px;
@@ -140,6 +140,7 @@ body {
 
 .profile-dropdown h4 {
   margin: 0;
+  /* font-size: 7px; */
 }
 
 .profile-dropdown p {
@@ -149,6 +150,9 @@ body {
 .profile-dropdown a {
   text-decoration: none;
   color: #333;
+}
+.profile-image {
+  width: 2.7rem;
 }
 
 .profile-dropdown hr {

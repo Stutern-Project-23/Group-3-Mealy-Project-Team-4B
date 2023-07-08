@@ -16,8 +16,10 @@ const SignupModal = ({ handleCloseSignup }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [isSignUpSuccessful, setIsSignUpSuccessful] = useState(false);
+  // const [isSignUpSuccessful, setIsSignUpSuccessful] = useState(false);
   const [signUpError, setSignUpError] = useState(null);
+  const [address, setAddress] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const { setIsShowModal, setActiveModal } = useContext(GlobalContext);
 
   const handleLoginClick = () => {
@@ -45,14 +47,19 @@ const SignupModal = ({ handleCloseSignup }) => {
     setShowPassword(!showPassword);
   };
 
+  const handleAddressChange = (e) => {
+    setAddress(e.target.value);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
 
     const payload = {
       userName: `${firstName} ${lastName}`,
       email: email,
       password: password,
-      userAddress: "69, bamaka street",
+      userAddress: address,
     };
 
     try {
@@ -73,13 +80,14 @@ const SignupModal = ({ handleCloseSignup }) => {
           console.log(response, "this is response");
           if (response) {
             // setIsSignUpSuccessful(true);
+            setIsLoading(true);
             console.log("signup successful", response);
             setFirstName("");
             setLastName("");
             setEmail("");
             setPassword("");
             setIsShowModal(true);
-            setActiveModal("addDeliveryModal");
+            setActiveModal("otpActivationModal");
           } else {
             const errorData = response.json();
             setSignUpError(errorData.message);
@@ -89,10 +97,12 @@ const SignupModal = ({ handleCloseSignup }) => {
         })
         .catch(function (error) {
           setSignUpError(error.response.data.message);
+          setIsLoading(false);
         });
     } catch (error) {
       console.error("An error occurred:", error);
       setSignUpError(error.message);
+      setIsLoading(false);
     }
   };
   return (
@@ -133,6 +143,7 @@ const SignupModal = ({ handleCloseSignup }) => {
                   onChange={handleFirstNameChange}
                 />
               </div>
+              <hr />
               <div className="signup--input--wrapper">
                 <img
                   src={nameIcon}
@@ -148,6 +159,7 @@ const SignupModal = ({ handleCloseSignup }) => {
                   onChange={handleLastNameChange}
                 />
               </div>
+              <hr />
 
               <div className="signup--input--wrapper">
                 <img
@@ -164,6 +176,8 @@ const SignupModal = ({ handleCloseSignup }) => {
                   onChange={handleEmailChange}
                 />
               </div>
+              <hr />
+
               <div className="signup--input--wrapper">
                 <img
                   src={pwordIcon}
@@ -185,14 +199,31 @@ const SignupModal = ({ handleCloseSignup }) => {
                   onClick={toggleShowPassword}
                 />
               </div>
+              <hr />
+              <div className="signup--input--wrapper">
+                <img
+                  src="../../images/location/location-icon.svg"
+                  alt="address"
+                  className="signup--vectors"
+                />
+                <input
+                  className="signup--input"
+                  placeholder="No, street name"
+                  type="address"
+                  id="address"
+                  value={address}
+                  onChange={handleAddressChange}
+                />
+              </div>
+              <hr />
             </div>
-            <div>
+            <div className="signup-button-div">
               <button className="signup--submit" type="submit">
-                SIGNUP
+                {isLoading ? "LOADING" : "SIGNUP"}
               </button>
-              {signUpError && <p className="signup--error">{signUpError}</p>}
             </div>
           </form>
+          {signUpError && <p className="signup--error">{signUpError}</p>}
         </div>
       </div>
     </div>
