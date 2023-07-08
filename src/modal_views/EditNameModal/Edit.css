@@ -50,12 +50,16 @@
 
 .edit-form input {
   outline: none;
+  border: none;
+  width: 100%;
 }
 
 .edit-container button {
   background-color: blueviolet;
   width: 15rem;
   border-radius: 20px;
+  border: none;
+  color: #fff;
 }
 
 .edit-container .button-container {
@@ -63,4 +67,9 @@
   justify-content: center;
   margin-top: 5%;
   height: 30px;
+}
+
+.edit-container button:hover {
+  background-color: rgb(165, 96, 230);
+  cursor: pointer;
 }

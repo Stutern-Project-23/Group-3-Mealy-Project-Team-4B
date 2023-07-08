@@ -10,9 +10,8 @@ const EditPassword = () => {
   const { setShowIsShowModal, setActiveModal } = useContext(GlobalContext);
 
   const handleCloseEditPassword = () => {
-    setShowIsShowModal(false);
-
     setActiveModal("");
+    setShowIsShowModal(false);
   };
 
   const handleOldPassword = (e) => {
