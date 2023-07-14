@@ -13,6 +13,8 @@ const GlobalContext = createContext({
   setDeliveryRestaurantData: () => {},
   cartModalData: {},
   setCartModalData: () => {},
+  checkoutModalData: {},
+  setCheckoutModalData: () => {},
 });
 
 const GlobalProvider = ({ children }) => {
@@ -23,6 +25,7 @@ const GlobalProvider = ({ children }) => {
   const [userData, setUserData] = useState(null);
   const [restaurantData, setRestaurantData] = useState([]);
   const [cartModalData, setCartModalData] = useState(null);
+  const [checkoutModalData, setCheckoutModalData] = useState([]);
 
   return (
     <GlobalContext.Provider
@@ -41,6 +44,8 @@ const GlobalProvider = ({ children }) => {
         setRestaurantData,
         cartModalData,
         setCartModalData,
+        checkoutModalData,
+        setCheckoutModalData,
       }}
     >
       {children}

@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import food1 from "../assets/food1.png";
 import food2 from "../assets/food2.png";
 import food3 from "../assets/food3.png";
+import { GlobalContext } from "../context";
 
 const CartData = [
   {

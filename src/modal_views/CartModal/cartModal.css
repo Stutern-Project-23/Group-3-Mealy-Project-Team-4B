@@ -15,5 +15,93 @@
   background-color: #fff;
   width: 50%;
   height: 80%;
+  position: relative;
+}
+
+.cart-modal-link {
+  text-align: right;
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  margin-right: 2%;
+  margin-top: 2%;
+}
+
+.cart-modal-link a {
+  text-decoration: none;
+  color: #fff;
+}
+.cart-modal-image {
+  position: relative;
+}
+
+.cart-modal-image img {
+  /* position: absolute; */
+  width: 100%;
+}
+
+.cart-modal-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.cart-modal-h1 {
+  font-family: "roboto", sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.cart-modal-p {
+  padding: 2% 10%;
+}
+.cart-modal-bottom p {
+  font-family: "roboto", sans-serif;
+}
+
+.cart-modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 2% 5%;
+}
+
+.cart-modal-add-remove {
+  border: 1px solid #6750a4;
+  width: 30%;
+  height: 3rem;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-content: center;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.cart-modal-add-remove button {
+  border: none;
+  background-color: transparent;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.cart-modal-add-remove span {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.cart-modal-add-to-cart {
+  width: 55%;
+  background-color: #6750a4;
   padding: 2%;
+}
+
+.cart-modal-add-to-cart button {
+  border: none;
+  background-color: transparent;
+  font-family: "roboto";
+  font-weight: 500;
+  color: #fff;
+  font-size: 1rem;
 }

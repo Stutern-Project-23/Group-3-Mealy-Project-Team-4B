@@ -162,6 +162,8 @@
 }
 
 .category-delivery-container {
+  display: flex;
+  justify-content: center;
   border: #ccc solid 1px;
   padding: 2% 1%;
   margin-top: 2%;
@@ -170,7 +172,8 @@
 
 .category-delivery-container ul {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 5%;
 }
 
 .category-delivery-container li {
