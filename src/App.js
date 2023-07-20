@@ -2,7 +2,7 @@ import CreateNewPassword from "./modal_views/CreateNewPasswordModal";
 import SetDelivery from "./components/SetDelivery";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Homepage from "./pages/Homepage";
-import LandingPage from "./pages/LandingPage";
+import LandingPage from "./pages/Landingpage";
 
 import { GlobalProvider } from "./context";
 import { PageNotFound } from "./components/PageNotFound";
