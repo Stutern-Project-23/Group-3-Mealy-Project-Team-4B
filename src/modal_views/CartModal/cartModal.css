@@ -16,6 +16,10 @@
   width: 50%;
   height: 80%;
   position: relative;
+  @media (max-width: 600px) {
+    width: 95%;
+    height: 45%;
+  }
 }
 
 .cart-modal-link {

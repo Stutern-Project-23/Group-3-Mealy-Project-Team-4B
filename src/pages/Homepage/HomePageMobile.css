@@ -1,0 +1,124 @@
+@media screen and (max-width: 600px) {
+  .home-nav-links {
+    display: flex;
+    flex-direction: column;
+  }
+  .nav-divs {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+
+  .first-div-container {
+    margin-top: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
+  .first-div-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: flex-end;
+    width: 100%;
+    text-align: center;
+  }
+  .first-div-left .h3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+  }
+
+  .first-div-left h3 {
+    font-weight: 500;
+    font-size: 1.7rem;
+    line-height: 1.5rem;
+  }
+  .first-div-left-button {
+    margin: 7%;
+  }
+  .top-image2 {
+    width: 6rem;
+  }
+
+  .top-image3 {
+    left: 15rem;
+  }
+
+  .top-image3 img {
+    width: 4rem;
+  }
+
+  .top-image4 {
+    left: 11rem;
+  }
+  .top-image4 img {
+    width: 3rem;
+  }
+  .first-div-right {
+    width: 100%;
+    margin-bottom: 5%;
+  }
+
+  .second-div-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .second-div-left {
+    margin-bottom: 25%;
+  }
+
+  .second-background {
+  }
+
+  .second-div-right {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 40%;
+  }
+
+  .third-div-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .third-div-h3 {
+    text-align: center;
+  }
+  .third-div-h3 h3 {
+  }
+  .third-div-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .forth-div-container {
+  }
+  .forth-div-heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .forth-div-container h3 {
+    text-align: center;
+  }
+  .forth-div-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  .card-wrap {
+    text-align: center;
+    margin-bottom: 3%;
+  }
+
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

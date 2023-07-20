@@ -1,0 +1,24 @@
+/* @media screen and (max-width: 768px) {
+  .land-page-nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .mealy-address {
+    margin-bottom: 10px;
+  }
+
+  .form-div {
+    flex-direction: column;
+  }
+
+  .hanburger {
+    margin-left: auto;
+  }
+
+  ul {
+    position: static;
+    display: block;
+    padding: 0;
+  }
+} */

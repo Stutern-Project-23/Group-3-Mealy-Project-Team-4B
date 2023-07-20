@@ -20,6 +20,9 @@
   border: 1px solid #ccc;
   background-color: #fff;
   padding-left: 2%;
+  @media (max-width: 600px) {
+    width: 95%;
+  }
 }
 
 .x-div {

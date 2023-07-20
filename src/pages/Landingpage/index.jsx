@@ -6,6 +6,7 @@ import Footer from "../../components/Footer";
 import ModalControl from "../../modal_views/ModalControl";
 
 import "./LandingPage.css";
+import "./landingPageMobile.css";
 
 const LandingPage = () => {
   return (

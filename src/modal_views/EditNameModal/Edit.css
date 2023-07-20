@@ -17,6 +17,9 @@
   background-color: #fff;
   width: 30rem;
   padding: 0 3% 3% 3%;
+  @media (max-width: 600px) {
+    width: 95%;
+  }
 }
 
 .edit-close {

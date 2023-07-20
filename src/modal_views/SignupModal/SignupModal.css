@@ -19,6 +19,9 @@
   background-color: #fff;
   padding: 20px;
   width: 50%;
+  @media (max-width: 600px) {
+    width: 95%;
+  }
 }
 
 .signup--h2 {

@@ -37,13 +37,12 @@ const BulkOrder = () => {
             key={restaurant._id}
             className="all-category-container"
           >
-            <img src={african} alt="african" />
-
-            <h3>
-              <Link to={`/restaurant-menu/${restaurant.name}`}>
-                {restaurant.name}
-              </Link>
-            </h3>
+            <Link to={`/restaurant-menu/${restaurant.name}`}>
+              <div className="category-item-container">
+                <img src={african} alt="african" />
+                <h3>{restaurant.name}</h3>
+              </div>
+            </Link>
           </div>
         ))}
       </ul>

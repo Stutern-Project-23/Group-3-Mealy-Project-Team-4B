@@ -22,8 +22,10 @@ const CartModal = ({ handleCartModalClose }) => {
 
   const handleAddToCart = (food) => {
     const data = { food, count };
-    setCheckoutModalData(data);
+    setCheckoutModalData((prevData) => [...prevData, data]);
     console.log(data);
+    console.log(data.food);
+    console.log(data.count);
   };
 
   return (

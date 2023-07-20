@@ -37,7 +37,9 @@ const Category = () => {
 
   return (
     <div className="category-container">
-      <h5>Categories</h5>
+      <div className="category-container-header">
+        <h3>All Categories</h3>
+      </div>
       <div className="category-div">
         {cards.map((card, index) => {
           return (
