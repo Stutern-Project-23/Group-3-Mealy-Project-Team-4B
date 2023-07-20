@@ -3,12 +3,10 @@ import axios from "axios";
 import "./activationModal.css";
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../../context";
-import LoginModal from "../LoginModal";
 
 const ActivationModal = () => {
   const [activationCode, setActivationCode] = useState("");
-  const { isShowModal, setIsShowModal, activeModal, setActiveModal } =
-    useContext(GlobalContext);
+  const { setIsShowModal, setActiveModal } = useContext(GlobalContext);
 
   const handleCloseOtpModal = () => {
     setActiveModal("");
@@ -101,7 +99,7 @@ const ActivationModal = () => {
                 <p>
                   Did not receive the code?{" "}
                   <span>
-                    <a href="">re-send</a>
+                    <a href="https://mealy-app.netlify.app/">re-send</a>
                   </span>{" "}
                 </p>
               </div>

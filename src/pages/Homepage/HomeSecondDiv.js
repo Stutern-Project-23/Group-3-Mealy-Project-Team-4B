@@ -7,7 +7,7 @@ const HomeSecondDiv = () => {
       <div className="second-div-left">
         <div className="second-background">
           <div className="second-div-main-image">
-            <img src={`${path}mid-main.svg`} alt="image"></img>
+            <img src={`${path}mid-main.svg`} alt="second"></img>
           </div>
         </div>
       </div>

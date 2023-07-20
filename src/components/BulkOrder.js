@@ -6,7 +6,7 @@ import african from "../assets/african.svg";
 const BulkOrder = () => {
   const [bulkOrderRestaurants, setBulkOrderRestaurants] = useState([]);
   const { setRestaurantData } = useContext(GlobalContext);
-  const { restaurantId } = useParams();
+  // const { restaurantId } = useParams();
 
   useEffect(() => {
     fetch(

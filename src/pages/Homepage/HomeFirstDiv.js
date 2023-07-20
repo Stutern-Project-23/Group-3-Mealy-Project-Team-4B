@@ -34,19 +34,19 @@ const HomeFirstDiv = () => {
         <div className="first-div-right">
           <div className="top-background">
             <div className="top-image1">
-              <img src={`${path}main-circle.svg`} alt="image"></img>
+              <img src={`${path}main-circle.svg`} alt="top"></img>
             </div>
             <div>
               <div className="top-image2">
                 {" "}
-                <img src={`${path}top-right.svg`} alt="image"></img>
+                <img src={`${path}top-right.svg`} alt="top"></img>
               </div>
               <div className="top-image3">
-                <img src={`${path}mid-right.svg`} alt="image"></img>
+                <img src={`${path}mid-right.svg`} alt="top"></img>
               </div>
               <div className="top-image4">
                 {" "}
-                <img src={`${path}buttom-right.svg`} alt="image"></img>
+                <img src={`${path}buttom-right.svg`} alt="top"></img>
               </div>
             </div>
           </div>

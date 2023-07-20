@@ -6,7 +6,7 @@ import combo from "../assets/combo.svg";
 const Pickup = () => {
   const [pickupRestaurants, setPickupRestaurants] = useState([]);
   const { setRestaurantData } = useContext(GlobalContext);
-  const { restaurantId } = useParams();
+  // const { restaurantId } = useParams();
 
   useEffect(() => {
     fetch(

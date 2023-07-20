@@ -6,7 +6,7 @@ import chinese from "../assets/chinese.svg";
 const Delivery = () => {
   const [deliveryRestaurants, setDeliveryRestaurants] = useState([]);
   const { setRestaurantData } = useContext(GlobalContext);
-  const { restaurantId } = useParams();
+  // const { restaurantId } = useParams();
 
   useEffect(() => {
     fetch(
